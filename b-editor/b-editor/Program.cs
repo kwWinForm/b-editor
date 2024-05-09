@@ -1,4 +1,4 @@
-namespace b_editor
+﻿namespace b_editor
 {
     internal static class Program
     {

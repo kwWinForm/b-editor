@@ -1,4 +1,4 @@
-namespace b_editor
+﻿namespace b_editor
 {
     public partial class Form1 : Form
     {
