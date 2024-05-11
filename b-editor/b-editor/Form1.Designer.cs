@@ -340,6 +340,7 @@
             Name = "Form1";
             Text = "b-editor";
             FormClosing += Form1_FormClosing;
+            Load += Form1_Load;
             panel_sidebar.ResumeLayout(false);
             panel_sidebar.PerformLayout();
             menuStrip.ResumeLayout(false);
