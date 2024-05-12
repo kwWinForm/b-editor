@@ -6,6 +6,7 @@ namespace b_editor
     public class Settings
     {
         public string savePath = "";
+        public string currentPost = "";
 
         private Settings() {}
 
@@ -20,6 +21,7 @@ namespace b_editor
                 if (rk != null)
                 {
                     settings.savePath = (string)rk.GetValue("savePath");
+                    settings.currentPost = (string)rk.GetValue("currentPost");
                 }
             }
             catch (Exception e) { }
@@ -27,6 +29,11 @@ namespace b_editor
             if (settings.savePath == "")
             {
                 settings.savePath = Directory.GetCurrentDirectory();
+            }
+
+            if (settings.currentPost == null)
+            {
+                settings.currentPost = "";
             }
 
             return settings;
@@ -39,6 +46,7 @@ namespace b_editor
                 RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"b-editor");
 
                 rk.SetValue("savePath", savePath);
+                rk.SetValue("currentPost", currentPost);
             }
             catch (Exception e)
             {
