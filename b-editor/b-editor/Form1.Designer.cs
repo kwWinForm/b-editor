@@ -1,4 +1,4 @@
-﻿namespace b_editor
+namespace b_editor
 {
     partial class Form1
     {
@@ -28,326 +28,366 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            panel_sidebar = new Panel();
-            postLayoutPanel = new TableLayoutPanel();
-            chk_sidebar = new CheckBox();
-            textEditor = new RichTextBox();
-            menuStrip = new MenuStrip();
-            menu_file = new ToolStripMenuItem();
-            menu_newPost = new ToolStripMenuItem();
-            menu_import = new ToolStripMenuItem();
-            menu_export = new ToolStripMenuItem();
-            toolStripSeparator2 = new ToolStripSeparator();
-            menu_save = new ToolStripMenuItem();
-            menu_connect = new ToolStripMenuItem();
-            menu_upload = new ToolStripMenuItem();
-            toolStripSeparator1 = new ToolStripSeparator();
-            menu_exit = new ToolStripMenuItem();
-            menu_edit = new ToolStripMenuItem();
-            menu_cut = new ToolStripMenuItem();
-            menu_copy = new ToolStripMenuItem();
-            menu_paste = new ToolStripMenuItem();
-            toolStripSeparator3 = new ToolStripSeparator();
-            menu_insert = new ToolStripMenuItem();
-            menu_insertImage = new ToolStripMenuItem();
-            menu_insertLink = new ToolStripMenuItem();
-            menu_view = new ToolStripMenuItem();
-            menu_preview = new ToolStripMenuItem();
-            toolStrip1 = new ToolStrip();
-            toolStrip_bold = new ToolStripButton();
-            toolStrip_italic = new ToolStripButton();
-            toolStrip_underline = new ToolStripButton();
-            toolStrip_cancellation = new ToolStripButton();
-            toolStrip_fontType = new ToolStripComboBox();
-            toolStrip_fontSize = new ToolStripComboBox();
-            toolStrip_BGColor = new ToolStripButton();
-            toolStrip_textColor = new ToolStripButton();
-            colorDialog1 = new ColorDialog();
-            fontDialog1 = new FontDialog();
-            panel_sidebar.SuspendLayout();
-            menuStrip.SuspendLayout();
-            toolStrip1.SuspendLayout();
-            SuspendLayout();
+            this.panel_sidebar = new System.Windows.Forms.Panel();
+            this.postLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.chk_sidebar = new System.Windows.Forms.CheckBox();
+            this.textEditor = new System.Windows.Forms.RichTextBox();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menu_file = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_newPost = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_import = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_export = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menu_save = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_connect = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_upload = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menu_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_cut = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_copy = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_paste = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.menu_insert = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_insertImage = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_insertLink = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_view = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_preview = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip_bold = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_italic = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_underline = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_cancellation = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_fontType = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip_fontSize = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip_BGColor = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip_textColor = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.txtEdit = new System.Windows.Forms.TextBox();
+            this.panel_sidebar.SuspendLayout();
+            this.menuStrip.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panel_sidebar
             // 
-            panel_sidebar.Controls.Add(postLayoutPanel);
-            panel_sidebar.Controls.Add(chk_sidebar);
-            panel_sidebar.Dock = DockStyle.Left;
-            panel_sidebar.Location = new Point(0, 28);
-            panel_sidebar.Name = "panel_sidebar";
-            panel_sidebar.Size = new Size(200, 599);
-            panel_sidebar.TabIndex = 0;
+            this.panel_sidebar.Controls.Add(this.postLayoutPanel);
+            this.panel_sidebar.Controls.Add(this.chk_sidebar);
+            this.panel_sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel_sidebar.Location = new System.Drawing.Point(0, 33);
+            this.panel_sidebar.Name = "panel_sidebar";
+            this.panel_sidebar.Size = new System.Drawing.Size(222, 531);
+            this.panel_sidebar.TabIndex = 0;
             // 
             // postLayoutPanel
             // 
-            postLayoutPanel.ColumnCount = 1;
-            postLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            postLayoutPanel.Dock = DockStyle.Fill;
-            postLayoutPanel.Location = new Point(0, 0);
-            postLayoutPanel.Name = "postLayoutPanel";
-            postLayoutPanel.RowCount = 1;
-            postLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            postLayoutPanel.Size = new Size(200, 569);
-            postLayoutPanel.TabIndex = 1;
+            this.postLayoutPanel.ColumnCount = 1;
+            this.postLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.postLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.postLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.postLayoutPanel.Name = "postLayoutPanel";
+            this.postLayoutPanel.RowCount = 1;
+            this.postLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.postLayoutPanel.Size = new System.Drawing.Size(222, 503);
+            this.postLayoutPanel.TabIndex = 1;
             // 
             // chk_sidebar
             // 
-            chk_sidebar.Appearance = Appearance.Button;
-            chk_sidebar.AutoSize = true;
-            chk_sidebar.Dock = DockStyle.Bottom;
-            chk_sidebar.FlatAppearance.BorderSize = 0;
-            chk_sidebar.FlatStyle = FlatStyle.Flat;
-            chk_sidebar.Location = new Point(0, 569);
-            chk_sidebar.Name = "chk_sidebar";
-            chk_sidebar.Size = new Size(200, 30);
-            chk_sidebar.TabIndex = 0;
-            chk_sidebar.Text = "Toggle";
-            chk_sidebar.TextAlign = ContentAlignment.MiddleCenter;
-            chk_sidebar.UseVisualStyleBackColor = true;
+            this.chk_sidebar.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chk_sidebar.AutoSize = true;
+            this.chk_sidebar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chk_sidebar.FlatAppearance.BorderSize = 0;
+            this.chk_sidebar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chk_sidebar.Location = new System.Drawing.Point(0, 503);
+            this.chk_sidebar.Name = "chk_sidebar";
+            this.chk_sidebar.Size = new System.Drawing.Size(222, 28);
+            this.chk_sidebar.TabIndex = 0;
+            this.chk_sidebar.Text = "Toggle";
+            this.chk_sidebar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chk_sidebar.UseVisualStyleBackColor = true;
             // 
             // textEditor
             // 
-            textEditor.Dock = DockStyle.Fill;
-            textEditor.Location = new Point(200, 28);
-            textEditor.Name = "textEditor";
-            textEditor.Size = new Size(765, 599);
-            textEditor.TabIndex = 1;
-            textEditor.Text = "";
+            this.textEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEditor.Location = new System.Drawing.Point(222, 33);
+            this.textEditor.Name = "textEditor";
+            this.textEditor.Size = new System.Drawing.Size(850, 531);
+            this.textEditor.TabIndex = 1;
+            this.textEditor.Text = "";
             // 
             // menuStrip
             // 
-            menuStrip.ImageScalingSize = new Size(20, 20);
-            menuStrip.Items.AddRange(new ToolStripItem[] { menu_file, menu_edit, menu_view });
-            menuStrip.Location = new Point(0, 0);
-            menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(965, 28);
-            menuStrip.TabIndex = 2;
-            menuStrip.Text = "menuStrip1";
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_file,
+            this.menu_edit,
+            this.menu_view});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1072, 33);
+            this.menuStrip.TabIndex = 2;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // menu_file
             // 
-            menu_file.DropDownItems.AddRange(new ToolStripItem[] { menu_newPost, menu_import, menu_export, toolStripSeparator2, menu_save, menu_connect, menu_upload, toolStripSeparator1, menu_exit });
-            menu_file.Name = "menu_file";
-            menu_file.Size = new Size(53, 24);
-            menu_file.Text = "파일";
+            this.menu_file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_newPost,
+            this.menu_import,
+            this.menu_export,
+            this.toolStripSeparator2,
+            this.menu_save,
+            this.menu_connect,
+            this.menu_upload,
+            this.toolStripSeparator1,
+            this.menu_exit});
+            this.menu_file.Name = "menu_file";
+            this.menu_file.Size = new System.Drawing.Size(64, 29);
+            this.menu_file.Text = "파일";
             // 
             // menu_newPost
             // 
-            menu_newPost.Name = "menu_newPost";
-            menu_newPost.Size = new Size(224, 26);
-            menu_newPost.Text = "새로 만들기";
+            this.menu_newPost.Name = "menu_newPost";
+            this.menu_newPost.Size = new System.Drawing.Size(210, 34);
+            this.menu_newPost.Text = "새로 만들기";
             // 
             // menu_import
             // 
-            menu_import.Name = "menu_import";
-            menu_import.Size = new Size(224, 26);
-            menu_import.Text = "불러오기";
+            this.menu_import.Name = "menu_import";
+            this.menu_import.Size = new System.Drawing.Size(210, 34);
+            this.menu_import.Text = "불러오기";
             // 
             // menu_export
             // 
-            menu_export.Enabled = false;
-            menu_export.Name = "menu_export";
-            menu_export.Size = new Size(224, 26);
-            menu_export.Text = "내보내기";
+            this.menu_export.Enabled = false;
+            this.menu_export.Name = "menu_export";
+            this.menu_export.Size = new System.Drawing.Size(210, 34);
+            this.menu_export.Text = "내보내기";
             // 
             // toolStripSeparator2
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(221, 6);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(207, 6);
             // 
             // menu_save
             // 
-            menu_save.Name = "menu_save";
-            menu_save.Size = new Size(224, 26);
-            menu_save.Text = "저장";
+            this.menu_save.Name = "menu_save";
+            this.menu_save.Size = new System.Drawing.Size(210, 34);
+            this.menu_save.Text = "저장";
             // 
             // menu_connect
             // 
-            menu_connect.Name = "menu_connect";
-            menu_connect.Size = new Size(224, 26);
-            menu_connect.Text = "연결...";
+            this.menu_connect.Name = "menu_connect";
+            this.menu_connect.Size = new System.Drawing.Size(210, 34);
+            this.menu_connect.Text = "연결...";
             // 
             // menu_upload
             // 
-            menu_upload.Enabled = false;
-            menu_upload.Name = "menu_upload";
-            menu_upload.Size = new Size(224, 26);
-            menu_upload.Text = "업로드";
+            this.menu_upload.Enabled = false;
+            this.menu_upload.Name = "menu_upload";
+            this.menu_upload.Size = new System.Drawing.Size(210, 34);
+            this.menu_upload.Text = "업로드";
             // 
             // toolStripSeparator1
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
             // 
             // menu_exit
             // 
-            menu_exit.Name = "menu_exit";
-            menu_exit.Size = new Size(224, 26);
-            menu_exit.Text = "끝내기";
-            menu_exit.Click += menu_exit_Click;
+            this.menu_exit.Name = "menu_exit";
+            this.menu_exit.Size = new System.Drawing.Size(210, 34);
+            this.menu_exit.Text = "끝내기";
             // 
             // menu_edit
             // 
-            menu_edit.DropDownItems.AddRange(new ToolStripItem[] { menu_cut, menu_copy, menu_paste, toolStripSeparator3, menu_insert });
-            menu_edit.Name = "menu_edit";
-            menu_edit.Size = new Size(53, 24);
-            menu_edit.Text = "편집";
+            this.menu_edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_cut,
+            this.menu_copy,
+            this.menu_paste,
+            this.toolStripSeparator3,
+            this.menu_insert});
+            this.menu_edit.Name = "menu_edit";
+            this.menu_edit.Size = new System.Drawing.Size(64, 29);
+            this.menu_edit.Text = "편집";
             // 
             // menu_cut
             // 
-            menu_cut.Name = "menu_cut";
-            menu_cut.Size = new Size(152, 26);
-            menu_cut.Text = "잘라내기";
+            this.menu_cut.Name = "menu_cut";
+            this.menu_cut.Size = new System.Drawing.Size(186, 34);
+            this.menu_cut.Text = "잘라내기";
+            this.menu_cut.Click += new System.EventHandler(this.menu_cut_Click);
             // 
             // menu_copy
             // 
-            menu_copy.Name = "menu_copy";
-            menu_copy.Size = new Size(152, 26);
-            menu_copy.Text = "복사";
+            this.menu_copy.Name = "menu_copy";
+            this.menu_copy.Size = new System.Drawing.Size(186, 34);
+            this.menu_copy.Text = "복사";
+            this.menu_copy.Click += new System.EventHandler(this.menu_copy_Click);
             // 
             // menu_paste
             // 
-            menu_paste.Name = "menu_paste";
-            menu_paste.Size = new Size(152, 26);
-            menu_paste.Text = "붙여넣기";
+            this.menu_paste.Name = "menu_paste";
+            this.menu_paste.Size = new System.Drawing.Size(186, 34);
+            this.menu_paste.Text = "붙여넣기";
+            this.menu_paste.Click += new System.EventHandler(this.menu_paste_Click);
             // 
             // toolStripSeparator3
             // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(149, 6);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(183, 6);
             // 
             // menu_insert
             // 
-            menu_insert.DropDownItems.AddRange(new ToolStripItem[] { menu_insertImage, menu_insertLink });
-            menu_insert.Name = "menu_insert";
-            menu_insert.Size = new Size(152, 26);
-            menu_insert.Text = "삽입. . .";
+            this.menu_insert.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_insertImage,
+            this.menu_insertLink});
+            this.menu_insert.Name = "menu_insert";
+            this.menu_insert.Size = new System.Drawing.Size(186, 34);
+            this.menu_insert.Text = "삽입. . .";
             // 
             // menu_insertImage
             // 
-            menu_insertImage.Name = "menu_insertImage";
-            menu_insertImage.Size = new Size(167, 26);
-            menu_insertImage.Text = "그림";
+            this.menu_insertImage.Name = "menu_insertImage";
+            this.menu_insertImage.Size = new System.Drawing.Size(204, 34);
+            this.menu_insertImage.Text = "그림";
             // 
             // menu_insertLink
             // 
-            menu_insertLink.Name = "menu_insertLink";
-            menu_insertLink.Size = new Size(167, 26);
-            menu_insertLink.Text = "하이퍼링크";
+            this.menu_insertLink.Name = "menu_insertLink";
+            this.menu_insertLink.Size = new System.Drawing.Size(204, 34);
+            this.menu_insertLink.Text = "하이퍼링크";
             // 
             // menu_view
             // 
-            menu_view.DropDownItems.AddRange(new ToolStripItem[] { menu_preview });
-            menu_view.Name = "menu_view";
-            menu_view.Size = new Size(53, 24);
-            menu_view.Text = "보기";
+            this.menu_view.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_preview});
+            this.menu_view.Name = "menu_view";
+            this.menu_view.Size = new System.Drawing.Size(64, 29);
+            this.menu_view.Text = "보기";
             // 
             // menu_preview
             // 
-            menu_preview.Name = "menu_preview";
-            menu_preview.Size = new Size(152, 26);
-            menu_preview.Text = "미리보기";
+            this.menu_preview.Name = "menu_preview";
+            this.menu_preview.Size = new System.Drawing.Size(186, 34);
+            this.menu_preview.Text = "미리보기";
             // 
             // toolStrip1
             // 
-            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStrip_bold, toolStrip_italic, toolStrip_underline, toolStrip_cancellation, toolStrip_fontType, toolStrip_fontSize, toolStrip_BGColor, toolStrip_textColor });
-            toolStrip1.Location = new Point(200, 28);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(765, 28);
-            toolStrip1.TabIndex = 3;
-            toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_bold,
+            this.toolStrip_italic,
+            this.toolStrip_underline,
+            this.toolStrip_cancellation,
+            this.toolStrip_fontType,
+            this.toolStrip_fontSize,
+            this.toolStrip_BGColor,
+            this.toolStrip_textColor});
+            this.toolStrip1.Location = new System.Drawing.Point(222, 33);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(850, 34);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStrip_bold
             // 
-            toolStrip_bold.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStrip_bold.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            toolStrip_bold.ImageTransparentColor = Color.Magenta;
-            toolStrip_bold.Name = "toolStrip_bold";
-            toolStrip_bold.Size = new Size(29, 25);
-            toolStrip_bold.Text = "가";
+            this.toolStrip_bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_bold.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.toolStrip_bold.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_bold.Name = "toolStrip_bold";
+            this.toolStrip_bold.Size = new System.Drawing.Size(34, 29);
+            this.toolStrip_bold.Text = "가";
             // 
             // toolStrip_italic
             // 
-            toolStrip_italic.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStrip_italic.Font = new Font("맑은 고딕 Semilight", 9F, FontStyle.Italic, GraphicsUnit.Point, 129);
-            toolStrip_italic.ImageTransparentColor = Color.Magenta;
-            toolStrip_italic.Name = "toolStrip_italic";
-            toolStrip_italic.Size = new Size(29, 25);
-            toolStrip_italic.Text = "가";
+            this.toolStrip_italic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_italic.Font = new System.Drawing.Font("맑은 고딕 Semilight", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.toolStrip_italic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_italic.Name = "toolStrip_italic";
+            this.toolStrip_italic.Size = new System.Drawing.Size(34, 29);
+            this.toolStrip_italic.Text = "가";
             // 
             // toolStrip_underline
             // 
-            toolStrip_underline.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStrip_underline.Font = new Font("맑은 고딕", 9F, FontStyle.Underline, GraphicsUnit.Point, 129);
-            toolStrip_underline.ImageTransparentColor = Color.Magenta;
-            toolStrip_underline.Name = "toolStrip_underline";
-            toolStrip_underline.Size = new Size(29, 25);
-            toolStrip_underline.Text = "가";
+            this.toolStrip_underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_underline.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.toolStrip_underline.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_underline.Name = "toolStrip_underline";
+            this.toolStrip_underline.Size = new System.Drawing.Size(34, 29);
+            this.toolStrip_underline.Text = "가";
             // 
             // toolStrip_cancellation
             // 
-            toolStrip_cancellation.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStrip_cancellation.Font = new Font("맑은 고딕", 9F, FontStyle.Strikeout, GraphicsUnit.Point, 129);
-            toolStrip_cancellation.ImageTransparentColor = Color.Magenta;
-            toolStrip_cancellation.Name = "toolStrip_cancellation";
-            toolStrip_cancellation.Size = new Size(29, 25);
-            toolStrip_cancellation.Text = "가";
+            this.toolStrip_cancellation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_cancellation.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.toolStrip_cancellation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_cancellation.Name = "toolStrip_cancellation";
+            this.toolStrip_cancellation.Size = new System.Drawing.Size(34, 29);
+            this.toolStrip_cancellation.Text = "가";
             // 
             // toolStrip_fontType
             // 
-            toolStrip_fontType.Name = "toolStrip_fontType";
-            toolStrip_fontType.Size = new Size(121, 28);
-            toolStrip_fontType.Text = "폰트";
+            this.toolStrip_fontType.Name = "toolStrip_fontType";
+            this.toolStrip_fontType.Size = new System.Drawing.Size(134, 34);
+            this.toolStrip_fontType.Text = "폰트";
             // 
             // toolStrip_fontSize
             // 
-            toolStrip_fontSize.Name = "toolStrip_fontSize";
-            toolStrip_fontSize.Size = new Size(121, 28);
-            toolStrip_fontSize.Text = "크기";
+            this.toolStrip_fontSize.Name = "toolStrip_fontSize";
+            this.toolStrip_fontSize.Size = new System.Drawing.Size(134, 34);
+            this.toolStrip_fontSize.Text = "크기";
             // 
             // toolStrip_BGColor
             // 
-            toolStrip_BGColor.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStrip_BGColor.Image = (Image)resources.GetObject("toolStrip_BGColor.Image");
-            toolStrip_BGColor.ImageTransparentColor = Color.Magenta;
-            toolStrip_BGColor.Name = "toolStrip_BGColor";
-            toolStrip_BGColor.Size = new Size(70, 25);
-            toolStrip_BGColor.Text = "BGColor";
+            this.toolStrip_BGColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_BGColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_BGColor.Name = "toolStrip_BGColor";
+            this.toolStrip_BGColor.Size = new System.Drawing.Size(83, 29);
+            this.toolStrip_BGColor.Text = "BGColor";
             // 
             // toolStrip_textColor
             // 
-            toolStrip_textColor.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStrip_textColor.Image = (Image)resources.GetObject("toolStrip_textColor.Image");
-            toolStrip_textColor.ImageTransparentColor = Color.Magenta;
-            toolStrip_textColor.Name = "toolStrip_textColor";
-            toolStrip_textColor.Size = new Size(78, 25);
-            toolStrip_textColor.Text = "TextColor";
+            this.toolStrip_textColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStrip_textColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_textColor.Name = "toolStrip_textColor";
+            this.toolStrip_textColor.Size = new System.Drawing.Size(93, 29);
+            this.toolStrip_textColor.Text = "TextColor";
+            // 
+            // txtEdit
+            // 
+            this.txtEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEdit.Location = new System.Drawing.Point(222, 67);
+            this.txtEdit.Multiline = true;
+            this.txtEdit.Name = "txtEdit";
+            this.txtEdit.Size = new System.Drawing.Size(850, 497);
+            this.txtEdit.TabIndex = 4;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(965, 627);
-            Controls.Add(toolStrip1);
-            Controls.Add(textEditor);
-            Controls.Add(panel_sidebar);
-            Controls.Add(menuStrip);
-            MainMenuStrip = menuStrip;
-            Name = "Form1";
-            Text = "b-editor";
-            FormClosing += Form1_FormClosing;
-            panel_sidebar.ResumeLayout(false);
-            panel_sidebar.PerformLayout();
-            menuStrip.ResumeLayout(false);
-            menuStrip.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1072, 564);
+            this.Controls.Add(this.txtEdit);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.textEditor);
+            this.Controls.Add(this.panel_sidebar);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
+            this.Name = "Form1";
+            this.Text = "b-editor";
+            this.panel_sidebar.ResumeLayout(false);
+            this.panel_sidebar.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -388,5 +428,6 @@
         private ToolStripButton toolStrip_textColor;
         private FontDialog fontDialog1;
         private ToolStripMenuItem menu_connect;
+        private TextBox txtEdit;
     }
 }
