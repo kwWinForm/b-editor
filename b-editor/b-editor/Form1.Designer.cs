@@ -65,6 +65,8 @@
             toolStrip_textColor = new ToolStripButton();
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
+            menu_viewFolder = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
             panel_sidebar.SuspendLayout();
             menuStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -128,7 +130,7 @@
             // 
             // menu_file
             // 
-            menu_file.DropDownItems.AddRange(new ToolStripItem[] { menu_newPost, menu_import, menu_export, toolStripSeparator2, menu_save, menu_connect, menu_upload, toolStripSeparator1, menu_exit });
+            menu_file.DropDownItems.AddRange(new ToolStripItem[] { menu_newPost, menu_import, menu_export, toolStripSeparator4, menu_viewFolder, toolStripSeparator2, menu_save, menu_connect, menu_upload, toolStripSeparator1, menu_exit });
             menu_file.Name = "menu_file";
             menu_file.Size = new Size(53, 24);
             menu_file.Text = "파일";
@@ -327,6 +329,18 @@
             toolStrip_textColor.Size = new Size(78, 25);
             toolStrip_textColor.Text = "TextColor";
             // 
+            // menu_viewFolder
+            // 
+            menu_viewFolder.Name = "menu_viewFolder";
+            menu_viewFolder.Size = new Size(272, 26);
+            menu_viewFolder.Text = "파일 탐색기에서 폴더 보기";
+            menu_viewFolder.Click += menu_viewFolder_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(269, 6);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -389,5 +403,7 @@
         private ToolStripButton toolStrip_textColor;
         private FontDialog fontDialog1;
         private ToolStripMenuItem menu_connect;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripMenuItem menu_viewFolder;
     }
 }

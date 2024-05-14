@@ -85,5 +85,10 @@
             textEditor.Text = "";
             textEditor.SaveFile(filename); // 빈 텍스트 rtf 포맷으로 저장
         }
+
+        private void menu_viewFolder_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", settings.savePath);
+        }
     }
 }
