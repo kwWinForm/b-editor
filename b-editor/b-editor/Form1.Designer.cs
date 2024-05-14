@@ -75,9 +75,10 @@
             panel_sidebar.Controls.Add(postLayoutPanel);
             panel_sidebar.Controls.Add(chk_sidebar);
             panel_sidebar.Dock = DockStyle.Left;
-            panel_sidebar.Location = new Point(0, 28);
+            panel_sidebar.Location = new Point(0, 42);
+            panel_sidebar.Margin = new Padding(5, 5, 5, 5);
             panel_sidebar.Name = "panel_sidebar";
-            panel_sidebar.Size = new Size(200, 599);
+            panel_sidebar.Size = new Size(311, 961);
             panel_sidebar.TabIndex = 0;
             // 
             // postLayoutPanel
@@ -86,10 +87,11 @@
             postLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             postLayoutPanel.Dock = DockStyle.Fill;
             postLayoutPanel.Location = new Point(0, 0);
+            postLayoutPanel.Margin = new Padding(5, 5, 5, 5);
             postLayoutPanel.Name = "postLayoutPanel";
             postLayoutPanel.RowCount = 1;
             postLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            postLayoutPanel.Size = new Size(200, 569);
+            postLayoutPanel.Size = new Size(311, 919);
             postLayoutPanel.TabIndex = 1;
             // 
             // chk_sidebar
@@ -99,9 +101,10 @@
             chk_sidebar.Dock = DockStyle.Bottom;
             chk_sidebar.FlatAppearance.BorderSize = 0;
             chk_sidebar.FlatStyle = FlatStyle.Flat;
-            chk_sidebar.Location = new Point(0, 569);
+            chk_sidebar.Location = new Point(0, 919);
+            chk_sidebar.Margin = new Padding(5, 5, 5, 5);
             chk_sidebar.Name = "chk_sidebar";
-            chk_sidebar.Size = new Size(200, 30);
+            chk_sidebar.Size = new Size(311, 42);
             chk_sidebar.TabIndex = 0;
             chk_sidebar.Text = "Toggle";
             chk_sidebar.TextAlign = ContentAlignment.MiddleCenter;
@@ -110,9 +113,10 @@
             // textEditor
             // 
             textEditor.Dock = DockStyle.Fill;
-            textEditor.Location = new Point(200, 28);
+            textEditor.Location = new Point(311, 42);
+            textEditor.Margin = new Padding(5, 5, 5, 5);
             textEditor.Name = "textEditor";
-            textEditor.Size = new Size(765, 599);
+            textEditor.Size = new Size(1190, 961);
             textEditor.TabIndex = 1;
             textEditor.Text = "";
             // 
@@ -122,7 +126,8 @@
             menuStrip.Items.AddRange(new ToolStripItem[] { menu_file, menu_edit, menu_view });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(965, 28);
+            menuStrip.Padding = new Padding(9, 3, 0, 3);
+            menuStrip.Size = new Size(1501, 42);
             menuStrip.TabIndex = 2;
             menuStrip.Text = "menuStrip1";
             // 
@@ -130,61 +135,61 @@
             // 
             menu_file.DropDownItems.AddRange(new ToolStripItem[] { menu_newPost, menu_import, menu_export, toolStripSeparator2, menu_save, menu_connect, menu_upload, toolStripSeparator1, menu_exit });
             menu_file.Name = "menu_file";
-            menu_file.Size = new Size(53, 24);
+            menu_file.Size = new Size(82, 36);
             menu_file.Text = "파일";
             // 
             // menu_newPost
             // 
             menu_newPost.Name = "menu_newPost";
-            menu_newPost.Size = new Size(224, 26);
+            menu_newPost.Size = new Size(275, 44);
             menu_newPost.Text = "새로 만들기";
             // 
             // menu_import
             // 
             menu_import.Name = "menu_import";
-            menu_import.Size = new Size(224, 26);
+            menu_import.Size = new Size(275, 44);
             menu_import.Text = "불러오기";
             // 
             // menu_export
             // 
             menu_export.Enabled = false;
             menu_export.Name = "menu_export";
-            menu_export.Size = new Size(224, 26);
+            menu_export.Size = new Size(275, 44);
             menu_export.Text = "내보내기";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(221, 6);
+            toolStripSeparator2.Size = new Size(272, 6);
             // 
             // menu_save
             // 
             menu_save.Name = "menu_save";
-            menu_save.Size = new Size(224, 26);
+            menu_save.Size = new Size(275, 44);
             menu_save.Text = "저장";
             // 
             // menu_connect
             // 
             menu_connect.Name = "menu_connect";
-            menu_connect.Size = new Size(224, 26);
+            menu_connect.Size = new Size(275, 44);
             menu_connect.Text = "연결...";
             // 
             // menu_upload
             // 
             menu_upload.Enabled = false;
             menu_upload.Name = "menu_upload";
-            menu_upload.Size = new Size(224, 26);
+            menu_upload.Size = new Size(275, 44);
             menu_upload.Text = "업로드";
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            toolStripSeparator1.Size = new Size(272, 6);
             // 
             // menu_exit
             // 
             menu_exit.Name = "menu_exit";
-            menu_exit.Size = new Size(224, 26);
+            menu_exit.Size = new Size(275, 44);
             menu_exit.Text = "끝내기";
             menu_exit.Click += menu_exit_Click;
             // 
@@ -192,62 +197,62 @@
             // 
             menu_edit.DropDownItems.AddRange(new ToolStripItem[] { menu_cut, menu_copy, menu_paste, toolStripSeparator3, menu_insert });
             menu_edit.Name = "menu_edit";
-            menu_edit.Size = new Size(53, 24);
+            menu_edit.Size = new Size(82, 36);
             menu_edit.Text = "편집";
             // 
             // menu_cut
             // 
             menu_cut.Name = "menu_cut";
-            menu_cut.Size = new Size(152, 26);
+            menu_cut.Size = new Size(243, 44);
             menu_cut.Text = "잘라내기";
             // 
             // menu_copy
             // 
             menu_copy.Name = "menu_copy";
-            menu_copy.Size = new Size(152, 26);
+            menu_copy.Size = new Size(243, 44);
             menu_copy.Text = "복사";
             // 
             // menu_paste
             // 
             menu_paste.Name = "menu_paste";
-            menu_paste.Size = new Size(152, 26);
+            menu_paste.Size = new Size(243, 44);
             menu_paste.Text = "붙여넣기";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(149, 6);
+            toolStripSeparator3.Size = new Size(240, 6);
             // 
             // menu_insert
             // 
             menu_insert.DropDownItems.AddRange(new ToolStripItem[] { menu_insertImage, menu_insertLink });
             menu_insert.Name = "menu_insert";
-            menu_insert.Size = new Size(152, 26);
+            menu_insert.Size = new Size(243, 44);
             menu_insert.Text = "삽입. . .";
             // 
             // menu_insertImage
             // 
             menu_insertImage.Name = "menu_insertImage";
-            menu_insertImage.Size = new Size(167, 26);
+            menu_insertImage.Size = new Size(267, 44);
             menu_insertImage.Text = "그림";
             // 
             // menu_insertLink
             // 
             menu_insertLink.Name = "menu_insertLink";
-            menu_insertLink.Size = new Size(167, 26);
+            menu_insertLink.Size = new Size(267, 44);
             menu_insertLink.Text = "하이퍼링크";
             // 
             // menu_view
             // 
             menu_view.DropDownItems.AddRange(new ToolStripItem[] { menu_preview });
             menu_view.Name = "menu_view";
-            menu_view.Size = new Size(53, 24);
+            menu_view.Size = new Size(82, 36);
             menu_view.Text = "보기";
             // 
             // menu_preview
             // 
             menu_preview.Name = "menu_preview";
-            menu_preview.Size = new Size(152, 26);
+            menu_preview.Size = new Size(243, 44);
             menu_preview.Text = "미리보기";
             // 
             // toolStrip1
@@ -255,9 +260,10 @@
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStrip_bold, toolStrip_italic, toolStrip_underline, toolStrip_cancellation, toolStrip_fontType, toolStrip_fontSize, toolStrip_BGColor, toolStrip_textColor });
-            toolStrip1.Location = new Point(200, 28);
+            toolStrip1.Location = new Point(311, 42);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(765, 28);
+            toolStrip1.Padding = new Padding(0, 0, 3, 0);
+            toolStrip1.Size = new Size(1190, 42);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -267,8 +273,9 @@
             toolStrip_bold.Font = new Font("맑은 고딕", 9F, FontStyle.Bold, GraphicsUnit.Point, 129);
             toolStrip_bold.ImageTransparentColor = Color.Magenta;
             toolStrip_bold.Name = "toolStrip_bold";
-            toolStrip_bold.Size = new Size(29, 25);
+            toolStrip_bold.Size = new Size(46, 36);
             toolStrip_bold.Text = "가";
+            toolStrip_bold.Click += toolStrip_bold_Click;
             // 
             // toolStrip_italic
             // 
@@ -276,7 +283,7 @@
             toolStrip_italic.Font = new Font("맑은 고딕 Semilight", 9F, FontStyle.Italic, GraphicsUnit.Point, 129);
             toolStrip_italic.ImageTransparentColor = Color.Magenta;
             toolStrip_italic.Name = "toolStrip_italic";
-            toolStrip_italic.Size = new Size(29, 25);
+            toolStrip_italic.Size = new Size(46, 36);
             toolStrip_italic.Text = "가";
             // 
             // toolStrip_underline
@@ -285,7 +292,7 @@
             toolStrip_underline.Font = new Font("맑은 고딕", 9F, FontStyle.Underline, GraphicsUnit.Point, 129);
             toolStrip_underline.ImageTransparentColor = Color.Magenta;
             toolStrip_underline.Name = "toolStrip_underline";
-            toolStrip_underline.Size = new Size(29, 25);
+            toolStrip_underline.Size = new Size(46, 36);
             toolStrip_underline.Text = "가";
             // 
             // toolStrip_cancellation
@@ -294,19 +301,19 @@
             toolStrip_cancellation.Font = new Font("맑은 고딕", 9F, FontStyle.Strikeout, GraphicsUnit.Point, 129);
             toolStrip_cancellation.ImageTransparentColor = Color.Magenta;
             toolStrip_cancellation.Name = "toolStrip_cancellation";
-            toolStrip_cancellation.Size = new Size(29, 25);
+            toolStrip_cancellation.Size = new Size(46, 36);
             toolStrip_cancellation.Text = "가";
             // 
             // toolStrip_fontType
             // 
             toolStrip_fontType.Name = "toolStrip_fontType";
-            toolStrip_fontType.Size = new Size(121, 28);
+            toolStrip_fontType.Size = new Size(186, 42);
             toolStrip_fontType.Text = "폰트";
             // 
             // toolStrip_fontSize
             // 
             toolStrip_fontSize.Name = "toolStrip_fontSize";
-            toolStrip_fontSize.Size = new Size(121, 28);
+            toolStrip_fontSize.Size = new Size(186, 42);
             toolStrip_fontSize.Text = "크기";
             // 
             // toolStrip_BGColor
@@ -315,7 +322,7 @@
             toolStrip_BGColor.Image = (Image)resources.GetObject("toolStrip_BGColor.Image");
             toolStrip_BGColor.ImageTransparentColor = Color.Magenta;
             toolStrip_BGColor.Name = "toolStrip_BGColor";
-            toolStrip_BGColor.Size = new Size(70, 25);
+            toolStrip_BGColor.Size = new Size(106, 36);
             toolStrip_BGColor.Text = "BGColor";
             // 
             // toolStrip_textColor
@@ -324,19 +331,20 @@
             toolStrip_textColor.Image = (Image)resources.GetObject("toolStrip_textColor.Image");
             toolStrip_textColor.ImageTransparentColor = Color.Magenta;
             toolStrip_textColor.Name = "toolStrip_textColor";
-            toolStrip_textColor.Size = new Size(78, 25);
+            toolStrip_textColor.Size = new Size(120, 36);
             toolStrip_textColor.Text = "TextColor";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(965, 627);
+            ClientSize = new Size(1501, 1003);
             Controls.Add(toolStrip1);
             Controls.Add(textEditor);
             Controls.Add(panel_sidebar);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Form1";
             Text = "b-editor";
             FormClosing += Form1_FormClosing;
