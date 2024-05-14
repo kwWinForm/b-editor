@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel_sidebar = new Panel();
-            postLayoutPanel = new TableLayoutPanel();
+            postList = new ListBox();
             chk_sidebar = new CheckBox();
             textEditor = new RichTextBox();
             menuStrip = new MenuStrip();
@@ -74,7 +74,7 @@
             // 
             // panel_sidebar
             // 
-            panel_sidebar.Controls.Add(postLayoutPanel);
+            panel_sidebar.Controls.Add(postList);
             panel_sidebar.Controls.Add(chk_sidebar);
             panel_sidebar.Dock = DockStyle.Left;
             panel_sidebar.Location = new Point(0, 28);
@@ -82,17 +82,19 @@
             panel_sidebar.Size = new Size(200, 599);
             panel_sidebar.TabIndex = 0;
             // 
-            // postLayoutPanel
+            // postList
             // 
-            postLayoutPanel.ColumnCount = 1;
-            postLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            postLayoutPanel.Dock = DockStyle.Fill;
-            postLayoutPanel.Location = new Point(0, 0);
-            postLayoutPanel.Name = "postLayoutPanel";
-            postLayoutPanel.RowCount = 1;
-            postLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            postLayoutPanel.Size = new Size(200, 569);
-            postLayoutPanel.TabIndex = 1;
+            postList.Dock = DockStyle.Fill;
+            postList.DrawMode = DrawMode.OwnerDrawFixed;
+            postList.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            postList.FormattingEnabled = true;
+            postList.ItemHeight = 31;
+            postList.Location = new Point(0, 0);
+            postList.Name = "postList";
+            postList.Size = new Size(200, 569);
+            postList.TabIndex = 1;
+            postList.DrawItem += postList_DrawItem;
+            postList.SelectedIndexChanged += postList_SelectedIndexChanged;
             // 
             // chk_sidebar
             // 
@@ -386,7 +388,6 @@
         private ToolStripMenuItem menu_upload;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem menu_exit;
-        private TableLayoutPanel postLayoutPanel;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem menu_insert;
         private ToolStripMenuItem menu_insertImage;
@@ -405,5 +406,6 @@
         private ToolStripMenuItem menu_connect;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem menu_viewFolder;
+        private ListBox postList;
     }
 }
