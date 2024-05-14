@@ -1,4 +1,5 @@
 using System.Threading;
+using System.IO;
 
 namespace b_editor
 {
@@ -39,6 +40,18 @@ namespace b_editor
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
+
+            return (result == DialogResult.Yes);
+        }
+
+        private bool postMoveQuestion()
+        {
+            var result = MessageBox.Show(    
+                "기존 포스트들을 새 저장소로 이동하시겠습니까?",
+                "포스트 이동",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             return (result == DialogResult.Yes);
         }
@@ -144,6 +157,29 @@ namespace b_editor
                 savePost(settings.currentPost);
                 settings.currentPost = postings[list.SelectedIndex]; // list 및 postings 배열의 인덱스는 동일한 순서를 가짐
                 openPost(settings.currentPost);
+            }
+        }
+
+        private void menu_editFolder_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (postMoveQuestion() == true)
+                {
+                    foreach(string post in postings)
+                    {
+                        string filename = Path.GetFileName(post);
+                        string destname = Path.Combine(folderBrowserDialog.SelectedPath, filename);
+                        File.Move(post, destname, true);
+                    }
+                    settings.currentPost = Path.Combine(folderBrowserDialog.SelectedPath, Path.GetFileName(settings.currentPost));
+                } else
+                {
+                    settings.currentPost = "";
+                }
+
+                settings.savePath = folderBrowserDialog.SelectedPath;
+                loadPostings();
             }
         }
     }

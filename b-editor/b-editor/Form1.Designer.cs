@@ -67,6 +67,8 @@
             fontDialog1 = new FontDialog();
             menu_viewFolder = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
+            menu_editFolder = new ToolStripMenuItem();
+            folderBrowserDialog = new FolderBrowserDialog();
             panel_sidebar.SuspendLayout();
             menuStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -132,7 +134,7 @@
             // 
             // menu_file
             // 
-            menu_file.DropDownItems.AddRange(new ToolStripItem[] { menu_newPost, menu_import, menu_export, toolStripSeparator4, menu_viewFolder, toolStripSeparator2, menu_save, menu_connect, menu_upload, toolStripSeparator1, menu_exit });
+            menu_file.DropDownItems.AddRange(new ToolStripItem[] { menu_newPost, menu_import, menu_export, toolStripSeparator4, menu_editFolder, menu_viewFolder, toolStripSeparator2, menu_save, menu_connect, menu_upload, toolStripSeparator1, menu_exit });
             menu_file.Name = "menu_file";
             menu_file.Size = new Size(53, 24);
             menu_file.Text = "파일";
@@ -155,6 +157,18 @@
             menu_export.Name = "menu_export";
             menu_export.Size = new Size(224, 26);
             menu_export.Text = "내보내기";
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(269, 6);
+            // 
+            // menu_viewFolder
+            // 
+            menu_viewFolder.Name = "menu_viewFolder";
+            menu_viewFolder.Size = new Size(272, 26);
+            menu_viewFolder.Text = "파일 탐색기에서 폴더 보기";
+            menu_viewFolder.Click += menu_viewFolder_Click;
             // 
             // toolStripSeparator2
             // 
@@ -331,17 +345,12 @@
             toolStrip_textColor.Size = new Size(78, 25);
             toolStrip_textColor.Text = "TextColor";
             // 
-            // menu_viewFolder
+            // menu_editFolder
             // 
-            menu_viewFolder.Name = "menu_viewFolder";
-            menu_viewFolder.Size = new Size(272, 26);
-            menu_viewFolder.Text = "파일 탐색기에서 폴더 보기";
-            menu_viewFolder.Click += menu_viewFolder_Click;
-            // 
-            // toolStripSeparator4
-            // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(269, 6);
+            menu_editFolder.Name = "menu_editFolder";
+            menu_editFolder.Size = new Size(272, 26);
+            menu_editFolder.Text = "저장소 폴더 변경...";
+            menu_editFolder.Click += menu_editFolder_Click;
             // 
             // Form1
             // 
@@ -407,5 +416,7 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem menu_viewFolder;
         private ListBox postList;
+        private ToolStripMenuItem menu_editFolder;
+        private FolderBrowserDialog folderBrowserDialog;
     }
 }
