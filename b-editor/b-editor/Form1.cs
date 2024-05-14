@@ -1,4 +1,4 @@
-﻿namespace b_editor
+namespace b_editor
 {
     public partial class Form1 : Form
     {
@@ -27,6 +27,12 @@
                 );
 
             return (result == DialogResult.Yes);
+        }
+
+        private void toolStrip_underline_Click(object sender, EventArgs e)
+        {
+            Font f = new Font(textEditor.Font.FontFamily, textEditor.Font.Size, FontStyle.Underline ^ textEditor.Font.Style);
+            textEditor.Font = f;
         }
     }
 }
