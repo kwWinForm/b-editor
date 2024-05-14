@@ -45,6 +45,8 @@ namespace b_editor
 
         private void loadPostings()
         {
+            postList.SelectedIndexChanged -= postList_SelectedIndexChanged;
+
             postings = Directory.GetFiles(settings.savePath, "*.rtf");
 
             // 해당 폴더에 포스트가 없는 경우
@@ -82,6 +84,8 @@ namespace b_editor
             }
 
             openPost(settings.currentPost);
+
+            postList.SelectedIndexChanged += postList_SelectedIndexChanged;
         }
 
         private void savePost(string filename)
@@ -132,9 +136,9 @@ namespace b_editor
             }
         }
 
-        private void postList_SelectedIndexChanged(object sender, EventArgs e)
+        private void postList_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            ListBox list = (ListBox)sender;
+            ListBox list = (ListBox)sender!;
             if (list.SelectedIndex > -1)
             {
                 savePost(settings.currentPost);
