@@ -8,6 +8,8 @@ namespace b_editor
         Settings settings; 
         string[] postings;
 
+        float idleTime = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -105,6 +107,8 @@ namespace b_editor
         {
             // 현재 열려있는 포스트 저장
             textEditor.SaveFile(filename);
+            // 자동저장 타이머 정지
+            autoSaveTimer.Stop();
             // 로드 직후 지나치게 빠른 저장으로 인한 에러 예방
             Thread.Sleep(100);
         }
@@ -181,6 +185,25 @@ namespace b_editor
                 settings.savePath = folderBrowserDialog.SelectedPath;
                 loadPostings();
             }
+        }
+
+        private void autoSaveTimer_Tick(object sender, EventArgs e)
+        {
+            idleTime += autoSaveTimer.Interval;
+            if (idleTime >= settings.autosaveInterval)
+            {
+                savePost(settings.currentPost);
+                idleTime = 0;
+            }
+        }
+
+        private void textEditor_TextChanged(object sender, EventArgs e)
+        {
+            if (autoSaveTimer.Enabled == false)
+            {
+                autoSaveTimer.Start();
+            }
+            idleTime = 0;
         }
     }
 }

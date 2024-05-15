@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel_sidebar = new Panel();
             postList = new ListBox();
@@ -69,6 +70,7 @@
             toolStripSeparator4 = new ToolStripSeparator();
             menu_editFolder = new ToolStripMenuItem();
             folderBrowserDialog = new FolderBrowserDialog();
+            autoSaveTimer = new System.Windows.Forms.Timer(components);
             panel_sidebar.SuspendLayout();
             menuStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -121,6 +123,7 @@
             textEditor.Size = new Size(765, 599);
             textEditor.TabIndex = 1;
             textEditor.Text = "";
+            textEditor.TextChanged += textEditor_TextChanged;
             // 
             // menuStrip
             // 
@@ -162,6 +165,13 @@
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
             toolStripSeparator4.Size = new Size(269, 6);
+            // 
+            // menu_editFolder
+            // 
+            menu_editFolder.Name = "menu_editFolder";
+            menu_editFolder.Size = new Size(272, 26);
+            menu_editFolder.Text = "저장소 폴더 변경...";
+            menu_editFolder.Click += menu_editFolder_Click;
             // 
             // menu_viewFolder
             // 
@@ -345,12 +355,10 @@
             toolStrip_textColor.Size = new Size(78, 25);
             toolStrip_textColor.Text = "TextColor";
             // 
-            // menu_editFolder
+            // autoSaveTimer
             // 
-            menu_editFolder.Name = "menu_editFolder";
-            menu_editFolder.Size = new Size(272, 26);
-            menu_editFolder.Text = "저장소 폴더 변경...";
-            menu_editFolder.Click += menu_editFolder_Click;
+            autoSaveTimer.Interval = 300;
+            autoSaveTimer.Tick += autoSaveTimer_Tick;
             // 
             // Form1
             // 
@@ -418,5 +426,6 @@
         private ListBox postList;
         private ToolStripMenuItem menu_editFolder;
         private FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Timer autoSaveTimer;
     }
 }

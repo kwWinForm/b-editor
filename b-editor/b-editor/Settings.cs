@@ -7,6 +7,7 @@ namespace b_editor
     {
         public string savePath = "";
         public string currentPost = "";
+        public int autosaveInterval = 5000; // milliseconds
 
         private Settings() {}
 
@@ -22,6 +23,7 @@ namespace b_editor
                 {
                     settings.savePath = (string)rk.GetValue("savePath");
                     settings.currentPost = (string)rk.GetValue("currentPost");
+                    settings.autosaveInterval = Convert.ToInt32(rk.GetValue("autosaveInterval"));
                 }
             }
             catch (Exception e) { }
@@ -34,6 +36,11 @@ namespace b_editor
             if (settings.currentPost == null)
             {
                 settings.currentPost = "";
+            }
+
+            if (settings.autosaveInterval == 0)
+            {
+                settings.autosaveInterval = 5000;
             }
 
             return settings;
