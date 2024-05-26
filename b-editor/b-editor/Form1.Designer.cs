@@ -428,6 +428,5 @@ namespace b_editor
         private ToolStripButton toolStrip_textColor;
         private FontDialog fontDialog1;
         private ToolStripMenuItem menu_connect;
-        private TextBox txtEdit;
     }
 }

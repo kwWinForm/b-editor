@@ -10,20 +10,20 @@ namespace b_editor
         private void menu_copy_Click(object sender, EventArgs e)
         {
             {
-                txtEdit.Copy();
+                textEditor.Copy();
             }
         }
 
         private void menu_cut_Click(object sender, EventArgs e)
         {
             {
-                txtEdit.Cut();
+                textEditor.Cut();
             }
         }
         private void menu_paste_Click(object sender, EventArgs e)
         {
             {
-                txtEdit.Paste();
+                textEditor.Paste();
             }
         }
 
