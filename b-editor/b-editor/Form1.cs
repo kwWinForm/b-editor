@@ -31,8 +31,24 @@ namespace b_editor
 
         private void toolStrip_bold_Click(object sender, EventArgs e)
         {
-            Font f = new Font(textEditor.Font.FontFamily, textEditor.Font.Size, FontStyle.Bold ^ textEditor.Font.Style);
-            textEditor.Font = f;
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Bold)
+                {
+                    // Remove bold
+                    newFontStyle = currentFont.Style & ~FontStyle.Bold;
+                }
+                else
+                {
+                    // Add bold
+                    newFontStyle = currentFont.Style | FontStyle.Bold;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            }
         }
     }
 }
