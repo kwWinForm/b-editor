@@ -64,7 +64,6 @@ namespace b_editor
             this.toolStrip_textColor = new System.Windows.Forms.ToolStripButton();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.txtEdit = new System.Windows.Forms.TextBox();
             this.panel_sidebar.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -357,23 +356,13 @@ namespace b_editor
             this.toolStrip_textColor.Size = new System.Drawing.Size(93, 29);
             this.toolStrip_textColor.Text = "TextColor";
             // 
-            // txtEdit
-            // 
-            this.txtEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEdit.Location = new System.Drawing.Point(222, 67);
-            this.txtEdit.Multiline = true;
-            this.txtEdit.Name = "txtEdit";
-            this.txtEdit.Size = new System.Drawing.Size(850, 497);
-            this.txtEdit.TabIndex = 4;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 564);
-            this.Controls.Add(this.txtEdit);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textEditor);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel_sidebar);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
