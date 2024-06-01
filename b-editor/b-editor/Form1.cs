@@ -15,6 +15,26 @@ namespace b_editor
             InitializeComponent();
         }
 
+        private void menu_copy_Click(object sender, EventArgs e)
+        {
+            {
+                textEditor.Copy();
+            }
+        }
+
+        private void menu_cut_Click(object sender, EventArgs e)
+        {
+            {
+                textEditor.Cut();
+            }
+        }
+        private void menu_paste_Click(object sender, EventArgs e)
+        {
+            {
+                textEditor.Paste();
+            }
+        }
+
         private void menu_exit_Click(object sender, EventArgs e)
         {
             Close();

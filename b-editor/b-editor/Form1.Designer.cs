@@ -365,8 +365,8 @@
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(965, 627);
-            Controls.Add(toolStrip1);
             Controls.Add(textEditor);
+            Controls.Add(toolStrip1);
             Controls.Add(panel_sidebar);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
