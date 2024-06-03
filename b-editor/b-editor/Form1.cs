@@ -5,7 +5,7 @@ namespace b_editor
 {
     public partial class Form1 : Form
     {
-        Settings settings; 
+        Settings settings;
         string[] postings;
 
         float idleTime = 0;
@@ -68,7 +68,7 @@ namespace b_editor
 
         private bool postMoveQuestion()
         {
-            var result = MessageBox.Show(    
+            var result = MessageBox.Show(
                 "기존 포스트들을 새 저장소로 이동하시겠습니까?",
                 "포스트 이동",
                 MessageBoxButtons.YesNo,
@@ -143,7 +143,7 @@ namespace b_editor
         {
             int i = 1;
             string filename = settings.savePath + "\\post.rtf";
-            while(File.Exists(filename))
+            while (File.Exists(filename))
             {
                 filename = settings.savePath + "\\post" + i + ".rtf";
                 i++;
@@ -190,14 +190,15 @@ namespace b_editor
             {
                 if (postMoveQuestion() == true)
                 {
-                    foreach(string post in postings)
+                    foreach (string post in postings)
                     {
                         string filename = Path.GetFileName(post);
                         string destname = Path.Combine(folderBrowserDialog.SelectedPath, filename);
                         File.Move(post, destname, true);
                     }
                     settings.currentPost = Path.Combine(folderBrowserDialog.SelectedPath, Path.GetFileName(settings.currentPost));
-                } else
+                }
+                else
                 {
                     settings.currentPost = "";
                 }
@@ -224,6 +225,72 @@ namespace b_editor
                 autoSaveTimer.Start();
             }
             idleTime = 0;
+        }
+
+        private void toolStrip_bold_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Bold)
+                {
+                    // Remove bold
+                    newFontStyle = currentFont.Style & ~FontStyle.Bold;
+                }
+                else
+                {
+                    // Add bold
+                    newFontStyle = currentFont.Style | FontStyle.Bold;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            }
+        }
+
+        private void toolStrip_italic_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Italic)
+                {
+                    // Remove italic
+                    newFontStyle = currentFont.Style & ~FontStyle.Italic;
+                }
+                else
+                {
+                    // Add italic
+                    newFontStyle = currentFont.Style | FontStyle.Italic;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            }
+        }
+
+        private void toolStrip_underline_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Underline)
+                {
+                    // Remove underline
+                    newFontStyle = currentFont.Style & ~FontStyle.Underline;
+                }
+                else
+                {
+                    // Add underline
+                    newFontStyle = currentFont.Style | FontStyle.Underline;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            }
         }
     }
 }
