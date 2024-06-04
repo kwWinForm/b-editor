@@ -5,7 +5,7 @@ namespace b_editor
 {
     public partial class Form1 : Form
     {
-        Settings settings; 
+        Settings settings;
         string[] postings;
 
         float idleTime = 0;
@@ -17,22 +17,17 @@ namespace b_editor
 
         private void menu_copy_Click(object sender, EventArgs e)
         {
-            {
-                textEditor.Copy();
-            }
+            textEditor.Copy();
         }
 
         private void menu_cut_Click(object sender, EventArgs e)
         {
-            {
-                textEditor.Cut();
-            }
+            textEditor.Cut();
         }
+
         private void menu_paste_Click(object sender, EventArgs e)
         {
-            {
-                textEditor.Paste();
-            }
+            textEditor.Paste();
         }
 
         private void menu_exit_Click(object sender, EventArgs e)
@@ -68,7 +63,7 @@ namespace b_editor
 
         private bool postMoveQuestion()
         {
-            var result = MessageBox.Show(    
+            var result = MessageBox.Show(
                 "기존 포스트들을 새 저장소로 이동하시겠습니까?",
                 "포스트 이동",
                 MessageBoxButtons.YesNo,
@@ -143,15 +138,15 @@ namespace b_editor
         {
             int i = 1;
             string filename = settings.savePath + "\\post.rtf";
-            while(File.Exists(filename))
+            while (File.Exists(filename))
             {
                 filename = settings.savePath + "\\post" + i + ".rtf";
                 i++;
             }
 
-            File.Create(filename).Close(); // 빈 파일 생성 후
+            File.Create(filename).Close();
             textEditor.Text = "";
-            textEditor.SaveFile(filename); // 빈 텍스트 rtf 포맷으로 저장
+            textEditor.SaveFile(filename);
         }
 
         private void menu_viewFolder_Click(object sender, EventArgs e)
@@ -164,22 +159,22 @@ namespace b_editor
             ListBox list = (ListBox)sender;
             if (e.Index > -1)
             {
-                string? item = list.Items[e.Index].ToString();
+                string item = list.Items[e.Index].ToString();
                 e.DrawBackground();
                 e.DrawFocusRectangle();
                 Brush brush = new SolidBrush(e.ForeColor);
-                SizeF size = e.Graphics.MeasureString(item, e.Font!);
-                e.Graphics.DrawString(item, e.Font!, brush, e.Bounds.Left + (e.Bounds.Width / 2 - size.Width / 2), e.Bounds.Top + (e.Bounds.Height / 2 - size.Height / 2));
+                SizeF size = e.Graphics.MeasureString(item, e.Font);
+                e.Graphics.DrawString(item, e.Font, brush, e.Bounds.Left + (e.Bounds.Width / 2 - size.Width / 2), e.Bounds.Top + (e.Bounds.Height / 2 - size.Height / 2));
             }
         }
 
-        private void postList_SelectedIndexChanged(object? sender, EventArgs e)
+        private void postList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListBox list = (ListBox)sender!;
+            ListBox list = (ListBox)sender;
             if (list.SelectedIndex > -1)
             {
                 savePost(settings.currentPost);
-                settings.currentPost = postings[list.SelectedIndex]; // list 및 postings 배열의 인덱스는 동일한 순서를 가짐
+                settings.currentPost = postings[list.SelectedIndex];
                 openPost(settings.currentPost);
             }
         }
@@ -190,14 +185,15 @@ namespace b_editor
             {
                 if (postMoveQuestion() == true)
                 {
-                    foreach(string post in postings)
+                    foreach (string post in postings)
                     {
                         string filename = Path.GetFileName(post);
                         string destname = Path.Combine(folderBrowserDialog.SelectedPath, filename);
                         File.Move(post, destname, true);
                     }
                     settings.currentPost = Path.Combine(folderBrowserDialog.SelectedPath, Path.GetFileName(settings.currentPost));
-                } else
+                }
+                else
                 {
                     settings.currentPost = "";
                 }
@@ -224,6 +220,23 @@ namespace b_editor
                 autoSaveTimer.Start();
             }
             idleTime = 0;
+
+            // 첫 줄을 제목으로 설정
+            UpdateTitle();
+        }
+
+        private void UpdateTitle()
+        {
+            int firstLineEnd = textEditor.Text.IndexOf('\n');
+            if (firstLineEnd > -1)
+            {
+                string firstLine = textEditor.Text.Substring(0, firstLineEnd).Trim();
+                postList.Items[postList.SelectedIndex] = firstLine;
+            }
+            else
+            {
+                postList.Items[postList.SelectedIndex] = textEditor.Text.Trim();
+            }
         }
     }
 }
