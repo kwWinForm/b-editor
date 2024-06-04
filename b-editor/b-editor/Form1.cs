@@ -163,8 +163,9 @@ namespace b_editor
                 e.DrawBackground();
                 e.DrawFocusRectangle();
                 Brush brush = new SolidBrush(e.ForeColor);
-                SizeF size = e.Graphics.MeasureString(item, e.Font);
-                e.Graphics.DrawString(item, e.Font, brush, e.Bounds.Left + (e.Bounds.Width / 2 - size.Width / 2), e.Bounds.Top + (e.Bounds.Height / 2 - size.Height / 2));
+                Font fixedFont = new Font("Arial", 10); // 고정된 폰트와 크기 설정
+                SizeF size = e.Graphics.MeasureString(item, fixedFont);
+                e.Graphics.DrawString(item, fixedFont, brush, e.Bounds.Left + (e.Bounds.Width / 2 - size.Width / 2), e.Bounds.Top + (e.Bounds.Height / 2 - size.Height / 2));
             }
         }
 
