@@ -120,12 +120,16 @@ namespace b_editor
 
         private void savePost(string filename)
         {
-            // 현재 열려있는 포스트 저장
-            textEditor.SaveFile(filename);
-            // 자동저장 타이머 정지
-            autoSaveTimer.Stop();
-            // 로드 직후 지나치게 빠른 저장으로 인한 에러 예방
-            Thread.Sleep(100);
+            try
+            {
+                // 포스트 저장
+                textEditor.SaveFile(filename);
+                // 자동저장 타이머 정지
+                autoSaveTimer.Stop();
+            } catch (IOException)
+            {
+                return;
+            }
         }
 
         private void openPost(string filename)
@@ -172,7 +176,7 @@ namespace b_editor
         private void postList_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListBox list = (ListBox)sender;
-            if (list.SelectedIndex > -1)
+            if (list.SelectedIndex > -1 && settings.currentPost != postings[list.SelectedIndex])
             {
                 savePost(settings.currentPost);
                 settings.currentPost = postings[list.SelectedIndex];
