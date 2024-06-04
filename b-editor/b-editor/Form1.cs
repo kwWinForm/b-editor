@@ -227,6 +227,8 @@ namespace b_editor
 
         private void UpdateTitle()
         {
+            int cursorPosition = textEditor.SelectionStart; // 현재 커서 위치 저장
+
             int firstLineEnd = textEditor.Text.IndexOf('\n');
             if (firstLineEnd > -1)
             {
@@ -237,6 +239,9 @@ namespace b_editor
             {
                 postList.Items[postList.SelectedIndex] = textEditor.Text.Trim();
             }
+
+            textEditor.SelectionStart = cursorPosition; // 원래 커서 위치 복원
+            textEditor.SelectionLength = 0; // 선택 영역 해제
         }
     }
 }
