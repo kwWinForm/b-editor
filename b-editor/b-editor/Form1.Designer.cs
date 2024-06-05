@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel_sidebar = new Panel();
+            btn_newPost = new Button();
             postList = new ListBox();
             chk_sidebar = new CheckBox();
             textEditor = new RichTextBox();
@@ -78,16 +79,31 @@
             // 
             // panel_sidebar
             // 
+            panel_sidebar.BorderStyle = BorderStyle.Fixed3D;
+            panel_sidebar.Controls.Add(btn_newPost);
             panel_sidebar.Controls.Add(postList);
             panel_sidebar.Controls.Add(chk_sidebar);
             panel_sidebar.Dock = DockStyle.Left;
-            panel_sidebar.Location = new Point(0, 28);
+            panel_sidebar.Location = new Point(0, 56);
             panel_sidebar.Name = "panel_sidebar";
-            panel_sidebar.Size = new Size(200, 599);
+            panel_sidebar.Size = new Size(200, 571);
             panel_sidebar.TabIndex = 0;
+            // 
+            // btn_newPost
+            // 
+            btn_newPost.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_newPost.Font = new Font("맑은 고딕", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            btn_newPost.Location = new Point(71, 489);
+            btn_newPost.Name = "btn_newPost";
+            btn_newPost.Size = new Size(121, 42);
+            btn_newPost.TabIndex = 2;
+            btn_newPost.Text = "+ New Post";
+            btn_newPost.UseVisualStyleBackColor = true;
             // 
             // postList
             // 
+            postList.BackColor = SystemColors.Window;
+            postList.BorderStyle = BorderStyle.None;
             postList.Dock = DockStyle.Fill;
             postList.DrawMode = DrawMode.OwnerDrawFixed;
             postList.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
@@ -95,7 +111,7 @@
             postList.ItemHeight = 31;
             postList.Location = new Point(0, 0);
             postList.Name = "postList";
-            postList.Size = new Size(200, 569);
+            postList.Size = new Size(196, 537);
             postList.TabIndex = 1;
             postList.DrawItem += postList_DrawItem;
             postList.SelectedIndexChanged += postList_SelectedIndexChanged;
@@ -103,13 +119,12 @@
             // chk_sidebar
             // 
             chk_sidebar.Appearance = Appearance.Button;
-            chk_sidebar.AutoSize = true;
             chk_sidebar.Dock = DockStyle.Bottom;
-            chk_sidebar.FlatAppearance.BorderSize = 0;
+            chk_sidebar.FlatAppearance.BorderColor = Color.Gainsboro;
             chk_sidebar.FlatStyle = FlatStyle.Flat;
-            chk_sidebar.Location = new Point(0, 569);
+            chk_sidebar.Location = new Point(0, 537);
             chk_sidebar.Name = "chk_sidebar";
-            chk_sidebar.Size = new Size(200, 30);
+            chk_sidebar.Size = new Size(196, 30);
             chk_sidebar.TabIndex = 0;
             chk_sidebar.Text = "Toggle";
             chk_sidebar.TextAlign = ContentAlignment.MiddleCenter;
@@ -118,9 +133,9 @@
             // textEditor
             // 
             textEditor.Dock = DockStyle.Fill;
-            textEditor.Location = new Point(200, 28);
+            textEditor.Location = new Point(200, 56);
             textEditor.Name = "textEditor";
-            textEditor.Size = new Size(765, 599);
+            textEditor.Size = new Size(765, 571);
             textEditor.TabIndex = 1;
             textEditor.Text = "";
             textEditor.TextChanged += textEditor_TextChanged;
@@ -283,9 +298,9 @@
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStrip_bold, toolStrip_italic, toolStrip_underline, toolStrip_cancellation, toolStrip_fontType, toolStrip_fontSize, toolStrip_BGColor, toolStrip_textColor });
-            toolStrip1.Location = new Point(200, 28);
+            toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(765, 28);
+            toolStrip1.Size = new Size(965, 28);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -364,10 +379,11 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Window;
             ClientSize = new Size(965, 627);
             Controls.Add(textEditor);
-            Controls.Add(toolStrip1);
             Controls.Add(panel_sidebar);
+            Controls.Add(toolStrip1);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
             Name = "Form1";
@@ -375,7 +391,6 @@
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             panel_sidebar.ResumeLayout(false);
-            panel_sidebar.PerformLayout();
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -427,5 +442,6 @@
         private ToolStripMenuItem menu_editFolder;
         private FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Timer autoSaveTimer;
+        private Button btn_newPost;
     }
 }
