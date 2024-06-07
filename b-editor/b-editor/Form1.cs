@@ -48,5 +48,21 @@ namespace b_editor
 
             return (result == DialogResult.Yes);
         }
+
+        private void toolStrip_BGColor_Click(object sender, EventArgs e) // 텍스트 배경 색상 변경 
+        {
+            int selectionStart = textEditor.SelectionStart;
+            int selectionLength = textEditor.SelectionLength;
+
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                textEditor.SelectionStart = selectionStart;
+                textEditor.SelectionLength = selectionLength;
+                textEditor.SelectionBackColor = colorDialog.Color;
+                textEditor.SelectionLength = 0;
+            }
+        }
     }
 }

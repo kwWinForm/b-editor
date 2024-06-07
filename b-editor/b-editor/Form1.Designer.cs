@@ -109,9 +109,9 @@ namespace b_editor
             // textEditor
             // 
             this.textEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEditor.Location = new System.Drawing.Point(222, 33);
+            this.textEditor.Location = new System.Drawing.Point(222, 67);
             this.textEditor.Name = "textEditor";
-            this.textEditor.Size = new System.Drawing.Size(850, 531);
+            this.textEditor.Size = new System.Drawing.Size(850, 497);
             this.textEditor.TabIndex = 1;
             this.textEditor.Text = "";
             // 
@@ -347,6 +347,7 @@ namespace b_editor
             this.toolStrip_BGColor.Name = "toolStrip_BGColor";
             this.toolStrip_BGColor.Size = new System.Drawing.Size(83, 29);
             this.toolStrip_BGColor.Text = "BGColor";
+            this.toolStrip_BGColor.Click += new System.EventHandler(this.toolStrip_BGColor_Click);
             // 
             // toolStrip_textColor
             // 
