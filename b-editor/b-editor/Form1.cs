@@ -149,9 +149,11 @@ namespace b_editor
                 i++;
             }
 
+            settings.currentPost = filename;
+
             File.Create(filename).Close(); // 빈 파일 생성 후
             textEditor.Text = "";
-            textEditor.SaveFile(filename); // 빈 텍스트 rtf 포맷으로 저장
+            savePost(filename); // 빈 텍스트 rtf 포맷으로 저장
         }
 
         private void menu_viewFolder_Click(object sender, EventArgs e)
@@ -224,6 +226,13 @@ namespace b_editor
                 autoSaveTimer.Start();
             }
             idleTime = 0;
+        }
+
+        private void newPost_Click(object sender, EventArgs e)
+        {
+            savePost(settings.currentPost); // 기존 포스트 저장
+            createNewPost();
+            loadPostings(); // 포스트 목록 갱신
         }
     }
 }

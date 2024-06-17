@@ -99,6 +99,7 @@
             btn_newPost.TabIndex = 2;
             btn_newPost.Text = "+ New Post";
             btn_newPost.UseVisualStyleBackColor = true;
+            btn_newPost.Click += newPost_Click;
             // 
             // postList
             // 
@@ -162,6 +163,7 @@
             menu_newPost.Name = "menu_newPost";
             menu_newPost.Size = new Size(224, 26);
             menu_newPost.Text = "새로 만들기";
+            menu_newPost.Click += newPost_Click;
             // 
             // menu_import
             // 
