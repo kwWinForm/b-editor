@@ -223,7 +223,11 @@ namespace b_editor
             toolStrip_bold.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Bold;
             toolStrip_italic.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Italic;
             toolStrip_underline.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Underline;
-            toolStrip_cancellation.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Strikeout; // 추가
+            toolStrip_cancellation.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Strikeout;
+
+            toolStrip_fontSize.Text = textEditor.SelectionFont.Size.ToString();
+
+            textEditor.Focus();
         }
 
         
@@ -308,6 +312,29 @@ namespace b_editor
                 }
 
                 textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_fontSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (float.TryParse(toolStrip_fontSize.SelectedItem.ToString(), out float size))
+            {
+                textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+            }
+
+            UpdateToolbar();
+        }
+
+        private void toolStrip_fontSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (float.TryParse(toolStrip_fontSize.Text, out float size))
+                {
+                    textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+                }
+
                 UpdateToolbar();
             }
         }

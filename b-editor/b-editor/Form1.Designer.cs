@@ -119,10 +119,12 @@
             // 
             textEditor.Dock = DockStyle.Fill;
             textEditor.Location = new Point(200, 28);
+            textEditor.HideSelection = false;
             textEditor.Name = "textEditor";
             textEditor.Size = new Size(765, 599);
             textEditor.TabIndex = 1;
             textEditor.Text = "";
+            textEditor.SelectionChanged += textEditor_SelectionChanged;
             textEditor.TextChanged += textEditor_TextChanged;
             // 
             // menuStrip
@@ -337,9 +339,13 @@
             // 
             // toolStrip_fontSize
             // 
+            toolStrip_fontSize.CausesValidation = false;
+            toolStrip_fontSize.Items.AddRange(new object[] { "8", "9", "10", "12", "14", "16", "20", "24", "28", "32", "36", "42", "48", "56", "64", "72", "84", "96", "108", "120" });
             toolStrip_fontSize.Name = "toolStrip_fontSize";
             toolStrip_fontSize.Size = new Size(121, 28);
             toolStrip_fontSize.Text = "크기";
+            toolStrip_fontSize.SelectedIndexChanged += toolStrip_fontSize_SelectedIndexChanged;
+            toolStrip_fontSize.KeyPress += toolStrip_fontSize_KeyPress;
             // 
             // toolStrip_BGColor
             // 
