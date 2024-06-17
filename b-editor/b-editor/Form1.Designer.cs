@@ -333,9 +333,12 @@
             // 
             // toolStrip_fontType
             // 
+            toolStrip_fontType.CausesValidation = false;
             toolStrip_fontType.Name = "toolStrip_fontType";
             toolStrip_fontType.Size = new Size(121, 28);
             toolStrip_fontType.Text = "폰트";
+            toolStrip_fontType.SelectedIndexChanged += toolStrip_fontType_SelectedIndexChanged;
+            toolStrip_fontType.KeyPress += toolStrip_fontType_KeyPress;
             // 
             // toolStrip_fontSize
             // 

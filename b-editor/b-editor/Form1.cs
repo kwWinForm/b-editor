@@ -42,6 +42,11 @@ namespace b_editor
         {
             settings = Settings.Load();
             loadPostings();
+
+            foreach (FontFamily ff in FontFamily.Families)
+            {
+                toolStrip_fontType.Items.Add(ff.Name);
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -226,6 +231,7 @@ namespace b_editor
             toolStrip_cancellation.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Strikeout;
 
             toolStrip_fontSize.Text = textEditor.SelectionFont.Size.ToString();
+            toolStrip_fontType.Text = textEditor.SelectionFont.FontFamily.Name;
 
             textEditor.Focus();
         }
@@ -333,6 +339,34 @@ namespace b_editor
                 if (float.TryParse(toolStrip_fontSize.Text, out float size))
                 {
                     textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+                }
+
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_fontType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string type = toolStrip_fontType.SelectedItem.ToString();
+            if (type != null)
+            {
+                textEditor.SelectionFont = new Font(type, textEditor.SelectionFont.Size, textEditor.SelectionFont.Style);
+            }
+
+            UpdateToolbar();
+        }
+
+        private void toolStrip_fontType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                foreach (object fontname in toolStrip_fontType.Items)
+                {
+                    if (fontname.ToString() == toolStrip_fontType.Text)
+                    {
+                        textEditor.SelectionFont = new Font(fontname.ToString(), textEditor.SelectionFont.Size, textEditor.SelectionFont.Style);
+                        break;
+                    }
                 }
 
                 UpdateToolbar();
