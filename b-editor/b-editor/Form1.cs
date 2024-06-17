@@ -16,7 +16,6 @@ namespace b_editor
         public Form1()
         {
             InitializeComponent();
-            textEditor.SelectionChanged += textEditor_SelectionChanged; // SelectionChanged 이벤트 핸들러 추가
         }
 
         private void menu_copy_Click(object sender, EventArgs e)
@@ -229,7 +228,7 @@ namespace b_editor
 
         
 
-        private void toolStrip_bold_Click_1(object sender, EventArgs e)
+        private void toolStrip_bold_Click(object sender, EventArgs e)
         {
             if (textEditor.SelectionFont != null)
             {
@@ -250,7 +249,7 @@ namespace b_editor
             }
         }
 
-        private void toolStrip_italic_Click_1(object sender, EventArgs e)
+        private void toolStrip_italic_Click(object sender, EventArgs e)
         {
             if (textEditor.SelectionFont != null)
             {
@@ -271,7 +270,7 @@ namespace b_editor
             }
         }
 
-        private void toolStrip_underline_Click_1(object sender, EventArgs e)
+        private void toolStrip_underline_Click(object sender, EventArgs e)
         {
             if (textEditor.SelectionFont != null)
             {
@@ -292,7 +291,7 @@ namespace b_editor
             }
         }
 
-        private void toolStrip_cancellation_Click_1(object sender, EventArgs e)
+        private void toolStrip_cancellation_Click(object sender, EventArgs e)
         {
             if (textEditor.SelectionFont != null)
             {
