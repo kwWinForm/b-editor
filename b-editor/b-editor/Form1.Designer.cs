@@ -135,10 +135,12 @@
             // 
             textEditor.Dock = DockStyle.Fill;
             textEditor.Location = new Point(200, 56);
+            textEditor.HideSelection = false;
             textEditor.Name = "textEditor";
             textEditor.Size = new Size(765, 571);
             textEditor.TabIndex = 1;
             textEditor.Text = "";
+            textEditor.SelectionChanged += textEditor_SelectionChanged;
             textEditor.TextChanged += textEditor_TextChanged;
             // 
             // menuStrip
@@ -314,6 +316,7 @@
             toolStrip_bold.Name = "toolStrip_bold";
             toolStrip_bold.Size = new Size(29, 25);
             toolStrip_bold.Text = "가";
+            toolStrip_bold.Click += toolStrip_bold_Click;
             // 
             // toolStrip_italic
             // 
@@ -323,6 +326,7 @@
             toolStrip_italic.Name = "toolStrip_italic";
             toolStrip_italic.Size = new Size(29, 25);
             toolStrip_italic.Text = "가";
+            toolStrip_italic.Click += toolStrip_italic_Click;
             // 
             // toolStrip_underline
             // 
@@ -332,6 +336,7 @@
             toolStrip_underline.Name = "toolStrip_underline";
             toolStrip_underline.Size = new Size(29, 25);
             toolStrip_underline.Text = "가";
+            toolStrip_underline.Click += toolStrip_underline_Click;
             // 
             // toolStrip_cancellation
             // 
@@ -341,18 +346,26 @@
             toolStrip_cancellation.Name = "toolStrip_cancellation";
             toolStrip_cancellation.Size = new Size(29, 25);
             toolStrip_cancellation.Text = "가";
+            toolStrip_cancellation.Click += toolStrip_cancellation_Click;
             // 
             // toolStrip_fontType
             // 
+            toolStrip_fontType.CausesValidation = false;
             toolStrip_fontType.Name = "toolStrip_fontType";
             toolStrip_fontType.Size = new Size(121, 28);
             toolStrip_fontType.Text = "폰트";
+            toolStrip_fontType.SelectedIndexChanged += toolStrip_fontType_SelectedIndexChanged;
+            toolStrip_fontType.KeyPress += toolStrip_fontType_KeyPress;
             // 
             // toolStrip_fontSize
             // 
+            toolStrip_fontSize.CausesValidation = false;
+            toolStrip_fontSize.Items.AddRange(new object[] { "8", "9", "10", "12", "14", "16", "20", "24", "28", "32", "36", "42", "48", "56", "64", "72", "84", "96", "108", "120" });
             toolStrip_fontSize.Name = "toolStrip_fontSize";
             toolStrip_fontSize.Size = new Size(121, 28);
             toolStrip_fontSize.Text = "크기";
+            toolStrip_fontSize.SelectedIndexChanged += toolStrip_fontSize_SelectedIndexChanged;
+            toolStrip_fontSize.KeyPress += toolStrip_fontSize_KeyPress;
             // 
             // toolStrip_BGColor
             // 

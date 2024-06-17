@@ -1,11 +1,14 @@
-using System.Threading;
+using System;
+using System.Drawing;
 using System.IO;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace b_editor
 {
     public partial class Form1 : Form
     {
-        Settings settings; 
+        Settings settings;
         string[] postings;
 
         float idleTime = 0;
@@ -17,22 +20,17 @@ namespace b_editor
 
         private void menu_copy_Click(object sender, EventArgs e)
         {
-            {
-                textEditor.Copy();
-            }
+            textEditor.Copy();
         }
 
         private void menu_cut_Click(object sender, EventArgs e)
         {
-            {
-                textEditor.Cut();
-            }
+            textEditor.Cut();
         }
+
         private void menu_paste_Click(object sender, EventArgs e)
         {
-            {
-                textEditor.Paste();
-            }
+            textEditor.Paste();
         }
 
         private void menu_exit_Click(object sender, EventArgs e)
@@ -44,6 +42,11 @@ namespace b_editor
         {
             settings = Settings.Load();
             loadPostings();
+
+            foreach (FontFamily ff in FontFamily.Families)
+            {
+                toolStrip_fontType.Items.Add(ff.Name);
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -68,7 +71,7 @@ namespace b_editor
 
         private bool postMoveQuestion()
         {
-            var result = MessageBox.Show(    
+            var result = MessageBox.Show(
                 "기존 포스트들을 새 저장소로 이동하시겠습니까?",
                 "포스트 이동",
                 MessageBoxButtons.YesNo,
@@ -84,37 +87,29 @@ namespace b_editor
 
             postings = Directory.GetFiles(settings.savePath, "*.rtf");
 
-            // 해당 폴더에 포스트가 없는 경우
             if (postings.Length == 0)
             {
-                // 새 포스트 생성
                 createNewPost();
                 postings = Directory.GetFiles(settings.savePath, "*.rtf");
             }
 
             postList.Items.Clear();
 
-            // 사이드바에 rtf 파일 목록 표시
             for (int i = 0; i < postings.Length; i++)
             {
-                // 해당 코드로부터, postings 배열과 postList.Items 배열의 인덱스는 동일한 순서임이 보장됨
                 string postname = postings[i].Substring(postings[i].LastIndexOf("\\") + 1).Replace(".rtf", "");
                 postList.Items.Add(postname);
             }
 
-            // settings.currentPost에 해당하는 포스트 index 검색
             int index = Array.IndexOf(postings, settings.currentPost);
 
-            // settings.currentPost 포스트가 폴더에 존재하지 않는 경우
             if (index == -1)
             {
-                // 첫번째 포스트 선택
                 settings.currentPost = postings[0];
                 postList.SelectedIndex = 0;
             }
             else
             {
-                // settings.currentPost에 해당하는 포스트 선택
                 postList.SelectedIndex = index;
             }
 
@@ -125,17 +120,13 @@ namespace b_editor
 
         private void savePost(string filename)
         {
-            // 현재 열려있는 포스트 저장
             textEditor.SaveFile(filename);
-            // 자동저장 타이머 정지
             autoSaveTimer.Stop();
-            // 로드 직후 지나치게 빠른 저장으로 인한 에러 예방
             Thread.Sleep(100);
         }
 
         private void openPost(string filename)
         {
-            // 해당 포스트 선택해서 편집기에 열기
             textEditor.LoadFile(filename);
         }
 
@@ -143,7 +134,7 @@ namespace b_editor
         {
             int i = 1;
             string filename = settings.savePath + "\\post.rtf";
-            while(File.Exists(filename))
+            while (File.Exists(filename))
             {
                 filename = settings.savePath + "\\post" + i + ".rtf";
                 i++;
@@ -151,9 +142,9 @@ namespace b_editor
 
             settings.currentPost = filename;
 
-            File.Create(filename).Close(); // 빈 파일 생성 후
+            File.Create(filename).Close();
             textEditor.Text = "";
-            savePost(filename); // 빈 텍스트 rtf 포맷으로 저장
+            savePost(filename);
         }
 
         private void menu_viewFolder_Click(object sender, EventArgs e)
@@ -166,22 +157,22 @@ namespace b_editor
             ListBox list = (ListBox)sender;
             if (e.Index > -1)
             {
-                string? item = list.Items[e.Index].ToString();
+                string item = list.Items[e.Index].ToString();
                 e.DrawBackground();
                 e.DrawFocusRectangle();
                 Brush brush = new SolidBrush(e.ForeColor);
-                SizeF size = e.Graphics.MeasureString(item, e.Font!);
-                e.Graphics.DrawString(item, e.Font!, brush, e.Bounds.Left + (e.Bounds.Width / 2 - size.Width / 2), e.Bounds.Top + (e.Bounds.Height / 2 - size.Height / 2));
+                SizeF size = e.Graphics.MeasureString(item, e.Font);
+                e.Graphics.DrawString(item, e.Font, brush, e.Bounds.Left + (e.Bounds.Width / 2 - size.Width / 2), e.Bounds.Top + (e.Bounds.Height / 2 - size.Height / 2));
             }
         }
 
-        private void postList_SelectedIndexChanged(object? sender, EventArgs e)
+        private void postList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListBox list = (ListBox)sender!;
+            ListBox list = (ListBox)sender;
             if (list.SelectedIndex > -1)
             {
                 savePost(settings.currentPost);
-                settings.currentPost = postings[list.SelectedIndex]; // list 및 postings 배열의 인덱스는 동일한 순서를 가짐
+                settings.currentPost = postings[list.SelectedIndex];
                 openPost(settings.currentPost);
             }
         }
@@ -192,14 +183,15 @@ namespace b_editor
             {
                 if (postMoveQuestion() == true)
                 {
-                    foreach(string post in postings)
+                    foreach (string post in postings)
                     {
                         string filename = Path.GetFileName(post);
                         string destname = Path.Combine(folderBrowserDialog.SelectedPath, filename);
                         File.Move(post, destname, true);
                     }
                     settings.currentPost = Path.Combine(folderBrowserDialog.SelectedPath, Path.GetFileName(settings.currentPost));
-                } else
+                }
+                else
                 {
                     settings.currentPost = "";
                 }
@@ -230,9 +222,162 @@ namespace b_editor
 
         private void newPost_Click(object sender, EventArgs e)
         {
-            savePost(settings.currentPost); // 기존 포스트 저장
+            savePost(settings.currentPost);
             createNewPost();
-            loadPostings(); // 포스트 목록 갱신
+            loadPostings();
+        }
+
+        private void textEditor_SelectionChanged(object sender, EventArgs e)
+        {
+            UpdateToolbar();
+        }
+
+        private void UpdateToolbar()
+        {
+            toolStrip_bold.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Bold;
+            toolStrip_italic.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Italic;
+            toolStrip_underline.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Underline;
+            toolStrip_cancellation.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Strikeout;
+
+            toolStrip_fontSize.Text = textEditor.SelectionFont.Size.ToString();
+            toolStrip_fontType.Text = textEditor.SelectionFont.FontFamily.Name;
+
+            textEditor.Focus();
+        }
+
+        private void toolStrip_bold_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Bold)
+                {
+                    newFontStyle = currentFont.Style & ~FontStyle.Bold;
+                }
+                else
+                {
+                    newFontStyle = currentFont.Style | FontStyle.Bold;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_italic_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Italic)
+                {
+                    newFontStyle = currentFont.Style & ~FontStyle.Italic;
+                }
+                else
+                {
+                    newFontStyle = currentFont.Style | FontStyle.Italic;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_underline_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Underline)
+                {
+                    newFontStyle = currentFont.Style & ~FontStyle.Underline;
+                }
+                else
+                {
+                    newFontStyle = currentFont.Style | FontStyle.Underline;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_cancellation_Click(object sender, EventArgs e)
+        {
+            if (textEditor.SelectionFont != null)
+            {
+                Font currentFont = textEditor.SelectionFont;
+                FontStyle newFontStyle;
+
+                if (textEditor.SelectionFont.Strikeout)
+                {
+                    newFontStyle = currentFont.Style & ~FontStyle.Strikeout;
+                }
+                else
+                {
+                    newFontStyle = currentFont.Style | FontStyle.Strikeout;
+                }
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_fontSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (float.TryParse(toolStrip_fontSize.SelectedItem.ToString(), out float size))
+            {
+                textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+            }
+
+            UpdateToolbar();
+        }
+
+        private void toolStrip_fontSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (float.TryParse(toolStrip_fontSize.Text, out float size))
+                {
+                    textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+                }
+
+                UpdateToolbar();
+            }
+        }
+
+        private void toolStrip_fontType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string type = toolStrip_fontType.SelectedItem.ToString();
+            if (type != null)
+            {
+                textEditor.SelectionFont = new Font(type, textEditor.SelectionFont.Size, textEditor.SelectionFont.Style);
+            }
+
+            UpdateToolbar();
+        }
+
+        private void toolStrip_fontType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                foreach (object fontname in toolStrip_fontType.Items)
+                {
+                    if (fontname.ToString() == toolStrip_fontType.Text)
+                    {
+                        textEditor.SelectionFont = new Font(fontname.ToString(), textEditor.SelectionFont.Size, textEditor.SelectionFont.Style);
+                        break;
+                    }
+                }
+
+                UpdateToolbar();
+            }
         }
     }
 }
