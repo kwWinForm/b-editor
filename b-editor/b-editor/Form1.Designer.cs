@@ -390,6 +390,7 @@
             toolStrip_BGColor.Name = "toolStrip_BGColor";
             toolStrip_BGColor.Size = new Size(70, 25);
             toolStrip_BGColor.Text = "BGColor";
+            this.toolStrip_BGColor.Click += toolStrip_BGColor_Click;
             // 
             // toolStrip_textColor
             // 
