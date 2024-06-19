@@ -242,6 +242,10 @@ namespace b_editor
             toolStrip_fontSize.Text = textEditor.SelectionFont.Size.ToString();
             toolStrip_fontType.Text = textEditor.SelectionFont.FontFamily.Name;
 
+            leftButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Left;
+            centerButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Center;
+            rightButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Right;
+
             textEditor.Focus();
         }
 
@@ -378,6 +382,23 @@ namespace b_editor
 
                 UpdateToolbar();
             }
+        }
+        private void leftButton_Click(object sender, EventArgs e)
+        {
+            textEditor.SelectionAlignment = HorizontalAlignment.Left;
+            UpdateToolbar();
+        }
+
+        private void centerButton_Click(object sender, EventArgs e)
+        {
+            textEditor.SelectionAlignment = HorizontalAlignment.Center;
+            UpdateToolbar();
+        }
+
+        private void rightButton_Click(object sender, EventArgs e)
+        {
+            textEditor.SelectionAlignment = HorizontalAlignment.Right;
+            UpdateToolbar();
         }
     }
 }

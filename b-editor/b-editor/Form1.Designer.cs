@@ -65,6 +65,9 @@
             toolStrip_fontSize = new ToolStripComboBox();
             toolStrip_BGColor = new ToolStripButton();
             toolStrip_textColor = new ToolStripButton();
+            leftButton = new ToolStripButton();
+            centerButton = new ToolStripButton();
+            rightButton = new ToolStripButton();
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
             menu_viewFolder = new ToolStripMenuItem();
@@ -84,6 +87,7 @@
             panel_sidebar.Controls.Add(postList);
             panel_sidebar.Controls.Add(chk_sidebar);
             panel_sidebar.Dock = DockStyle.Left;
+            panel_sidebar.Margin = new Padding(5);
             panel_sidebar.Location = new Point(0, 56);
             panel_sidebar.Name = "panel_sidebar";
             panel_sidebar.Size = new Size(200, 571);
@@ -111,6 +115,7 @@
             postList.FormattingEnabled = true;
             postList.ItemHeight = 31;
             postList.Location = new Point(0, 0);
+            postList.Margin = new Padding(5);
             postList.Name = "postList";
             postList.Size = new Size(196, 537);
             postList.TabIndex = 1;
@@ -123,6 +128,7 @@
             chk_sidebar.Dock = DockStyle.Bottom;
             chk_sidebar.FlatAppearance.BorderColor = Color.Gainsboro;
             chk_sidebar.FlatStyle = FlatStyle.Flat;
+            chk_sidebar.Margin = new Padding(5);
             chk_sidebar.Location = new Point(0, 537);
             chk_sidebar.Name = "chk_sidebar";
             chk_sidebar.Size = new Size(196, 30);
@@ -136,6 +142,7 @@
             textEditor.Dock = DockStyle.Fill;
             textEditor.Location = new Point(200, 56);
             textEditor.HideSelection = false;
+            textEditor.Margin = new Padding(5);
             textEditor.Name = "textEditor";
             textEditor.Size = new Size(765, 571);
             textEditor.TabIndex = 1;
@@ -149,6 +156,7 @@
             menuStrip.Items.AddRange(new ToolStripItem[] { menu_file, menu_edit, menu_view });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
+            menuStrip.Padding = new Padding(9, 3, 0, 3);
             menuStrip.Size = new Size(965, 28);
             menuStrip.TabIndex = 2;
             menuStrip.Text = "menuStrip1";
@@ -301,9 +309,10 @@
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStrip_bold, toolStrip_italic, toolStrip_underline, toolStrip_cancellation, toolStrip_fontType, toolStrip_fontSize, toolStrip_BGColor, toolStrip_textColor });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStrip_bold, toolStrip_italic, toolStrip_underline, toolStrip_cancellation, toolStrip_fontType, toolStrip_fontSize, toolStrip_BGColor, toolStrip_textColor, leftButton, centerButton, rightButton });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
+            toolStrip1.Padding = new Padding(0, 0, 3, 0);
             toolStrip1.Size = new Size(965, 28);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
@@ -385,6 +394,36 @@
             toolStrip_textColor.Size = new Size(78, 25);
             toolStrip_textColor.Text = "TextColor";
             // 
+            // leftButton
+            // 
+            leftButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            leftButton.Image = (Image)resources.GetObject("leftButton.Image");
+            leftButton.ImageTransparentColor = Color.Magenta;
+            leftButton.Name = "leftButton";
+            leftButton.Size = new Size(46, 36);
+            leftButton.Text = "leftButton";
+            leftButton.Click += leftButton_Click;
+            // 
+            // centerButton
+            // 
+            centerButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            centerButton.Image = (Image)resources.GetObject("centerButton.Image");
+            centerButton.ImageTransparentColor = Color.Magenta;
+            centerButton.Name = "centerButton";
+            centerButton.Size = new Size(46, 36);
+            centerButton.Text = "centerButton";
+            centerButton.Click += centerButton_Click;
+            // 
+            // rightButton
+            // 
+            rightButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            rightButton.Image = (Image)resources.GetObject("rightButton.Image");
+            rightButton.ImageTransparentColor = Color.Magenta;
+            rightButton.Name = "rightButton";
+            rightButton.Size = new Size(46, 36);
+            rightButton.Text = "rightButton";
+            rightButton.Click += rightButton_Click;
+            // 
             // autoSaveTimer
             // 
             autoSaveTimer.Interval = 300;
@@ -392,15 +431,16 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(965, 627);
+            ClientSize = new Size(1501, 1003);
             Controls.Add(textEditor);
             Controls.Add(panel_sidebar);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
+            Margin = new Padding(5);
             Name = "Form1";
             Text = "b-editor";
             FormClosing += Form1_FormClosing;
@@ -458,5 +498,8 @@
         private FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Timer autoSaveTimer;
         private Button btn_newPost;
+        private ToolStripButton leftButton;
+        private ToolStripButton centerButton;
+        private ToolStripButton rightButton;
     }
 }
