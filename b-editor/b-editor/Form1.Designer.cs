@@ -331,7 +331,7 @@
             toolStrip_bold.Name = "toolStrip_bold";
             toolStrip_bold.Size = new Size(29, 25);
             toolStrip_bold.Text = "가";
-            toolStrip_bold.Click += toolStrip_bold_Click;
+            toolStrip_bold.Click += toolStrip_textShape_Click;
             // 
             // toolStrip_italic
             // 
@@ -341,7 +341,7 @@
             toolStrip_italic.Name = "toolStrip_italic";
             toolStrip_italic.Size = new Size(29, 25);
             toolStrip_italic.Text = "가";
-            toolStrip_italic.Click += toolStrip_italic_Click;
+            toolStrip_italic.Click += toolStrip_textShape_Click;
             // 
             // toolStrip_underline
             // 
@@ -351,7 +351,7 @@
             toolStrip_underline.Name = "toolStrip_underline";
             toolStrip_underline.Size = new Size(29, 25);
             toolStrip_underline.Text = "가";
-            toolStrip_underline.Click += toolStrip_underline_Click;
+            toolStrip_underline.Click += toolStrip_textShape_Click;
             // 
             // toolStrip_cancellation
             // 
@@ -361,7 +361,7 @@
             toolStrip_cancellation.Name = "toolStrip_cancellation";
             toolStrip_cancellation.Size = new Size(29, 25);
             toolStrip_cancellation.Text = "가";
-            toolStrip_cancellation.Click += toolStrip_cancellation_Click;
+            toolStrip_cancellation.Click += toolStrip_textShape_Click;
             // 
             // toolStrip_fontType
             // 
