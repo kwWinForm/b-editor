@@ -64,6 +64,7 @@ namespace b_editor
             toolStrip_textColor = new ToolStripButton();
             colorDialog1 = new ColorDialog();
             fontDialog1 = new FontDialog();
+            openFileDialog1 = new OpenFileDialog();
             panel_sidebar.SuspendLayout();
             menuStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -236,6 +237,7 @@ namespace b_editor
             menu_insertImage.Name = "menu_insertImage";
             menu_insertImage.Size = new Size(270, 34);
             menu_insertImage.Text = "그림";
+            menu_insertImage.Click += menu_insertImage_Click;
             // 
             // menu_insertLink
             // 
@@ -332,6 +334,10 @@ namespace b_editor
             toolStrip_textColor.Size = new Size(93, 29);
             toolStrip_textColor.Text = "TextColor";
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -393,5 +399,6 @@ namespace b_editor
         private ToolStripButton toolStrip_textColor;
         private FontDialog fontDialog1;
         private ToolStripMenuItem menu_connect;
+        private OpenFileDialog openFileDialog1;
     }
 }
