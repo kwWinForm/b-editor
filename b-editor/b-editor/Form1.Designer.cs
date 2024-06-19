@@ -399,6 +399,7 @@
             toolStrip_textColor.Name = "toolStrip_textColor";
             toolStrip_textColor.Size = new Size(78, 25);
             toolStrip_textColor.Text = "TextColor";
+            toolStrip_textColor.Click += toolStrip_textColor_Click;
             // 
             // leftButton
             // 

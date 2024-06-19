@@ -64,6 +64,24 @@ namespace b_editor
             if (ExitQuestion() == false) e.Cancel = true;
         }
 
+        private void toolStrip_textColor_Click(object sender, EventArgs e)
+        {
+            {
+                int selectionStart = textEditor.SelectionStart;
+                int selectionLength = textEditor.SelectionLength;
+
+                ColorDialog colorDialog = new ColorDialog();
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    textEditor.SelectionStart = selectionStart;
+                    textEditor.SelectionLength = selectionLength;
+                    textEditor.SelectionColor = colorDialog.Color;
+                    textEditor.SelectionLength = 0;
+                }
+            }
+        }
+
         private bool ExitQuestion()
         {
             var result = MessageBox.Show(
