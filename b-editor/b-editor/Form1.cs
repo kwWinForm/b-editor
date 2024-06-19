@@ -261,72 +261,34 @@ namespace b_editor
             textEditor.Focus();
         }
 
-        private void toolStrip_bold_Click(object sender, EventArgs e)
+        private void toolStrip_textShape_Click(object sender, EventArgs e)
         {
             Font currentFont = getCurrentFont();
-            FontStyle newFontStyle;
+            FontStyle newFontStyle = currentFont.Style;
 
-            if (currentFont.Bold)
+            string senderName = ((ToolStripButton)sender).Name;
+            switch (senderName)
             {
-                newFontStyle = currentFont.Style & ~FontStyle.Bold;
-            }
-            else
-            {
-                newFontStyle = currentFont.Style | FontStyle.Bold;
-            }
-
-            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-            UpdateToolbar();
-        }
-
-        private void toolStrip_italic_Click(object sender, EventArgs e)
-        {
-            Font currentFont = getCurrentFont();
-            FontStyle newFontStyle;
-
-            if (currentFont.Italic)
-            {
-                newFontStyle = currentFont.Style & ~FontStyle.Italic;
-            }
-            else
-            {
-                newFontStyle = currentFont.Style | FontStyle.Italic;
-            }
-
-            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-            UpdateToolbar();
-        }
-
-        private void toolStrip_underline_Click(object sender, EventArgs e)
-        {
-            Font currentFont = getCurrentFont();
-            FontStyle newFontStyle;
-
-            if (currentFont.Underline)
-            {
-                newFontStyle = currentFont.Style & ~FontStyle.Underline;
-            }
-            else
-            {
-                newFontStyle = currentFont.Style | FontStyle.Underline;
-            }
-
-            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-            UpdateToolbar();
-        }
-
-        private void toolStrip_cancellation_Click(object sender, EventArgs e)
-        {
-            Font currentFont = getCurrentFont();
-            FontStyle newFontStyle;
-
-            if (currentFont.Strikeout)  
-            {
-                newFontStyle = currentFont.Style & ~FontStyle.Strikeout;
-            }
-            else
-            {
-                newFontStyle = currentFont.Style | FontStyle.Strikeout;
+                case "toolStrip_bold":
+                    newFontStyle = currentFont.Bold ?
+                        (currentFont.Style & ~FontStyle.Bold)
+                        : (currentFont.Style | FontStyle.Bold);
+                    break;
+                case "toolStrip_italic":
+                    newFontStyle = currentFont.Italic ?
+                        (currentFont.Style & ~FontStyle.Italic)
+                        : (currentFont.Style | FontStyle.Italic);
+                    break;
+                case "toolStrip_underline":
+                    newFontStyle = currentFont.Underline ?
+                        (currentFont.Style & ~FontStyle.Underline)
+                        : (currentFont.Style | FontStyle.Underline);
+                    break;
+                case "toolStrip_cancellation":
+                    newFontStyle = currentFont.Strikeout ?
+                        (currentFont.Style & ~FontStyle.Strikeout)
+                        : (currentFont.Style | FontStyle.Strikeout);
+                    break;
             }
 
             textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
