@@ -242,6 +242,10 @@ namespace b_editor
             toolStrip_fontSize.Text = textEditor.SelectionFont.Size.ToString();
             toolStrip_fontType.Text = textEditor.SelectionFont.FontFamily.Name;
 
+            leftButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Left;
+            centerButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Center;
+            rightButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Right;
+
             textEditor.Focus();
         }
 
