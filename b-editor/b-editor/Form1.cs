@@ -234,13 +234,25 @@ namespace b_editor
 
         private void UpdateToolbar()
         {
-            toolStrip_bold.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Bold;
-            toolStrip_italic.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Italic;
-            toolStrip_underline.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Underline;
-            toolStrip_cancellation.Checked = textEditor.SelectionFont != null && textEditor.SelectionFont.Strikeout;
-
-            toolStrip_fontSize.Text = textEditor.SelectionFont.Size.ToString();
-            toolStrip_fontType.Text = textEditor.SelectionFont.FontFamily.Name;
+            Font? font = textEditor.SelectionFont;
+            if (font != null)
+            {
+                toolStrip_fontSize.Text = font.Size.ToString();
+                toolStrip_fontType.Text = font.FontFamily.Name;
+                toolStrip_bold.Checked = font.Bold;
+                toolStrip_italic.Checked = font.Italic;
+                toolStrip_underline.Checked = font.Underline;
+                toolStrip_cancellation.Checked = font.Strikeout;
+            }
+            else
+            {
+                toolStrip_fontSize.Text = "...";
+                toolStrip_fontType.Text = "...";
+                toolStrip_bold.Checked = false;
+                toolStrip_italic.Checked = false;
+                toolStrip_underline.Checked = false;
+                toolStrip_cancellation.Checked = false;
+            }
 
             leftButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Left;
             centerButton.Checked = textEditor.SelectionAlignment == HorizontalAlignment.Center;
@@ -251,93 +263,83 @@ namespace b_editor
 
         private void toolStrip_bold_Click(object sender, EventArgs e)
         {
-            if (textEditor.SelectionFont != null)
+            Font currentFont = getCurrentFont();
+            FontStyle newFontStyle;
+
+            if (currentFont.Bold)
             {
-                Font currentFont = textEditor.SelectionFont;
-                FontStyle newFontStyle;
-
-                if (textEditor.SelectionFont.Bold)
-                {
-                    newFontStyle = currentFont.Style & ~FontStyle.Bold;
-                }
-                else
-                {
-                    newFontStyle = currentFont.Style | FontStyle.Bold;
-                }
-
-                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-                UpdateToolbar();
+                newFontStyle = currentFont.Style & ~FontStyle.Bold;
             }
+            else
+            {
+                newFontStyle = currentFont.Style | FontStyle.Bold;
+            }
+
+            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            UpdateToolbar();
         }
 
         private void toolStrip_italic_Click(object sender, EventArgs e)
         {
-            if (textEditor.SelectionFont != null)
+            Font currentFont = getCurrentFont();
+            FontStyle newFontStyle;
+
+            if (currentFont.Italic)
             {
-                Font currentFont = textEditor.SelectionFont;
-                FontStyle newFontStyle;
-
-                if (textEditor.SelectionFont.Italic)
-                {
-                    newFontStyle = currentFont.Style & ~FontStyle.Italic;
-                }
-                else
-                {
-                    newFontStyle = currentFont.Style | FontStyle.Italic;
-                }
-
-                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-                UpdateToolbar();
+                newFontStyle = currentFont.Style & ~FontStyle.Italic;
             }
+            else
+            {
+                newFontStyle = currentFont.Style | FontStyle.Italic;
+            }
+
+            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            UpdateToolbar();
         }
 
         private void toolStrip_underline_Click(object sender, EventArgs e)
         {
-            if (textEditor.SelectionFont != null)
+            Font currentFont = getCurrentFont();
+            FontStyle newFontStyle;
+
+            if (currentFont.Underline)
             {
-                Font currentFont = textEditor.SelectionFont;
-                FontStyle newFontStyle;
-
-                if (textEditor.SelectionFont.Underline)
-                {
-                    newFontStyle = currentFont.Style & ~FontStyle.Underline;
-                }
-                else
-                {
-                    newFontStyle = currentFont.Style | FontStyle.Underline;
-                }
-
-                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-                UpdateToolbar();
+                newFontStyle = currentFont.Style & ~FontStyle.Underline;
             }
+            else
+            {
+                newFontStyle = currentFont.Style | FontStyle.Underline;
+            }
+
+            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            UpdateToolbar();
         }
 
         private void toolStrip_cancellation_Click(object sender, EventArgs e)
         {
-            if (textEditor.SelectionFont != null)
+            Font currentFont = getCurrentFont();
+            FontStyle newFontStyle;
+
+            if (currentFont.Strikeout)  
             {
-                Font currentFont = textEditor.SelectionFont;
-                FontStyle newFontStyle;
-
-                if (textEditor.SelectionFont.Strikeout)
-                {
-                    newFontStyle = currentFont.Style & ~FontStyle.Strikeout;
-                }
-                else
-                {
-                    newFontStyle = currentFont.Style | FontStyle.Strikeout;
-                }
-
-                textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
-                UpdateToolbar();
+                newFontStyle = currentFont.Style & ~FontStyle.Strikeout;
             }
+            else
+            {
+                newFontStyle = currentFont.Style | FontStyle.Strikeout;
+            }
+
+            textEditor.SelectionFont = new Font(currentFont.FontFamily, currentFont.Size, newFontStyle);
+            UpdateToolbar();
         }
 
         private void toolStrip_fontSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (float.TryParse(toolStrip_fontSize.SelectedItem.ToString(), out float size))
             {
-                textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+                Font currentFont = getCurrentFont();
+
+                textEditor.SelectionFont = new Font(currentFont.FontFamily, size, currentFont.Style);
             }
 
             UpdateToolbar();
@@ -349,7 +351,9 @@ namespace b_editor
             {
                 if (float.TryParse(toolStrip_fontSize.Text, out float size))
                 {
-                    textEditor.SelectionFont = new Font(textEditor.SelectionFont.FontFamily, size, textEditor.SelectionFont.Style);
+                    Font currentFont = getCurrentFont();
+
+                    textEditor.SelectionFont = new Font(currentFont.FontFamily, size, currentFont.Style);
                 }
 
                 UpdateToolbar();
@@ -361,7 +365,9 @@ namespace b_editor
             string type = toolStrip_fontType.SelectedItem.ToString();
             if (type != null)
             {
-                textEditor.SelectionFont = new Font(type, textEditor.SelectionFont.Size, textEditor.SelectionFont.Style);
+                Font currentFont = getCurrentFont();
+
+                textEditor.SelectionFont = new Font(type, currentFont.Size, currentFont.Style);
             }
 
             UpdateToolbar();
@@ -375,7 +381,9 @@ namespace b_editor
                 {
                     if (fontname.ToString() == toolStrip_fontType.Text)
                     {
-                        textEditor.SelectionFont = new Font(fontname.ToString(), textEditor.SelectionFont.Size, textEditor.SelectionFont.Style);
+                        Font currentFont = getCurrentFont();
+
+                        textEditor.SelectionFont = new Font(fontname.ToString(), currentFont.Size, currentFont.Style);
                         break;
                     }
                 }
@@ -399,6 +407,23 @@ namespace b_editor
         {
             textEditor.SelectionAlignment = HorizontalAlignment.Right;
             UpdateToolbar();
+        }
+
+        private Font getCurrentFont()
+        {
+            Font? currentFont = textEditor.SelectionFont;
+            if (currentFont == null)
+            {
+                var selectionStart = textEditor.SelectionStart;
+                var selectionLength = textEditor.SelectionLength;
+
+                textEditor.Select(selectionStart + selectionLength, 0);
+                currentFont = textEditor.SelectionFont;
+
+                textEditor.Select(selectionStart, selectionLength);
+            }
+
+            return currentFont!;
         }
     }
 }
