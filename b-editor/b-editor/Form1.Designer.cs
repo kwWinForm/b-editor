@@ -79,6 +79,7 @@
             menuStrip.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
+            openFileDialog1 = new OpenFileDialog();
             // 
             // panel_sidebar
             // 
@@ -253,20 +254,23 @@
             // menu_cut
             // 
             menu_cut.Name = "menu_cut";
-            menu_cut.Size = new Size(152, 26);
+            menu_cut.Size = new Size(186, 34);
             menu_cut.Text = "잘라내기";
+            menu_cut.Click += menu_cut_Click;
             // 
             // menu_copy
             // 
             menu_copy.Name = "menu_copy";
-            menu_copy.Size = new Size(152, 26);
+            menu_copy.Size = new Size(186, 34);
             menu_copy.Text = "복사";
+            menu_copy.Click += menu_copy_Click;
             // 
             // menu_paste
             // 
             menu_paste.Name = "menu_paste";
-            menu_paste.Size = new Size(152, 26);
+            menu_paste.Size = new Size(186, 34);
             menu_paste.Text = "붙여넣기";
+            menu_paste.Click += menu_paste_Click;
             // 
             // toolStripSeparator3
             // 
@@ -283,14 +287,16 @@
             // menu_insertImage
             // 
             menu_insertImage.Name = "menu_insertImage";
-            menu_insertImage.Size = new Size(167, 26);
+            menu_insertImage.Size = new Size(204, 34);
             menu_insertImage.Text = "그림";
+            menu_insertImage.Click += menu_insertImage_Click;
             // 
             // menu_insertLink
             // 
             menu_insertLink.Name = "menu_insertLink";
-            menu_insertLink.Size = new Size(167, 26);
+            menu_insertLink.Size = new Size(204, 34);
             menu_insertLink.Text = "하이퍼링크";
+            menu_insertLink.Click += menu_insertLink_Click;
             // 
             // menu_view
             // 
@@ -429,6 +435,10 @@
             autoSaveTimer.Interval = 300;
             autoSaveTimer.Tick += autoSaveTimer_Tick;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(14F, 32F);
@@ -501,5 +511,6 @@
         private ToolStripButton leftButton;
         private ToolStripButton centerButton;
         private ToolStripButton rightButton;
+        private OpenFileDialog openFileDialog1;
     }
 }
