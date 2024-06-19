@@ -379,5 +379,28 @@ namespace b_editor
                 UpdateToolbar();
             }
         }
+
+        private void chk_sidebar_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void leftButton_Click(object sender, EventArgs e)
+        {
+            textEditor.SelectionAlignment = HorizontalAlignment.Left;
+            UpdateToolbar();
+        }
+
+        private void centerButton_Click(object sender, EventArgs e)
+        {
+            textEditor.SelectionAlignment = HorizontalAlignment.Center;
+            UpdateToolbar();
+        }
+
+        private void rightButton_Click(object sender, EventArgs e)
+        {
+            textEditor.SelectionAlignment = HorizontalAlignment.Right;
+            UpdateToolbar();
+        }
     }
 }
