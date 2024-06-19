@@ -14,9 +14,10 @@ namespace b_editor
     public partial class InsertLink : Form
     {
         public string Url { get; private set; }
-        public InsertLink()
+        public InsertLink(string selectedText)
         {
             InitializeComponent();
+            selected.Text = selectedText; 
         }
         private void OkButton_Click(object sender, EventArgs e)
         {

@@ -59,7 +59,7 @@ namespace b_editor
         {
             if (textEditor.SelectedText.Length > 0)
             {
-                using (InsertLink insert = new InsertLink())
+                using (InsertLink insert = new InsertLink(textEditor.SelectedText))
                 {
 
                     if (insert.ShowDialog() == DialogResult.OK)
