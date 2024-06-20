@@ -178,6 +178,7 @@
             // 
             // menu_import
             // 
+            menu_import.Enabled = false;
             menu_import.Name = "menu_import";
             menu_import.Size = new Size(330, 34);
             menu_import.Text = "불러오기";
@@ -255,47 +256,47 @@
             // menu_cut
             // 
             menu_cut.Name = "menu_cut";
-            menu_cut.Size = new Size(270, 34);
+            menu_cut.Size = new Size(186, 34);
             menu_cut.Text = "잘라내기";
             menu_cut.Click += menu_cut_Click;
             // 
             // menu_copy
             // 
             menu_copy.Name = "menu_copy";
-            menu_copy.Size = new Size(270, 34);
+            menu_copy.Size = new Size(186, 34);
             menu_copy.Text = "복사";
             menu_copy.Click += menu_copy_Click;
             // 
             // menu_paste
             // 
             menu_paste.Name = "menu_paste";
-            menu_paste.Size = new Size(270, 34);
+            menu_paste.Size = new Size(186, 34);
             menu_paste.Text = "붙여넣기";
             menu_paste.Click += menu_paste_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(267, 6);
+            toolStripSeparator3.Size = new Size(183, 6);
             // 
             // menu_insert
             // 
             menu_insert.DropDownItems.AddRange(new ToolStripItem[] { menu_insertImage, menu_insertLink });
             menu_insert.Name = "menu_insert";
-            menu_insert.Size = new Size(270, 34);
+            menu_insert.Size = new Size(186, 34);
             menu_insert.Text = "삽입. . .";
             // 
             // menu_insertImage
             // 
             menu_insertImage.Name = "menu_insertImage";
-            menu_insertImage.Size = new Size(270, 34);
+            menu_insertImage.Size = new Size(204, 34);
             menu_insertImage.Text = "그림";
             menu_insertImage.Click += menu_insertImage_Click;
             // 
             // menu_insertLink
             // 
             menu_insertLink.Name = "menu_insertLink";
-            menu_insertLink.Size = new Size(270, 34);
+            menu_insertLink.Size = new Size(204, 34);
             menu_insertLink.Text = "하이퍼링크";
             menu_insertLink.Click += menu_insertLink_Click;
             // 
@@ -310,7 +311,7 @@
             // 
             menu_preview.Enabled = false;
             menu_preview.Name = "menu_preview";
-            menu_preview.Size = new Size(270, 34);
+            menu_preview.Size = new Size(186, 34);
             menu_preview.Text = "미리보기";
             // 
             // toolStrip1
